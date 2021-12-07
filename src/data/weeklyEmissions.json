@@ -1,0 +1,834 @@
+{
+   "1": {
+      "emission": 57569.1,
+      "totalSupply": 57569.1
+   },
+   "2": {
+      "emission": 51676.2,
+      "totalSupply": 109245.3
+   },
+   "3": {
+      "emission": 26400,
+      "totalSupply": 135645.3
+   },
+   "4": {
+      "emission": 24977.5,
+      "totalSupply": 160622.8
+   },
+   "5": {
+      "emission": 23555,
+      "totalSupply": 184177.8
+   },
+   "6": {
+      "emission": 22896.01,
+      "totalSupply": 207073.81
+   },
+   "7": {
+      "emission": 22255.46,
+      "totalSupply": 229329.27
+   },
+   "8": {
+      "emission": 21632.83,
+      "totalSupply": 250962.1
+   },
+   "9": {
+      "emission": 21027.62,
+      "totalSupply": 271989.72
+   },
+   "10": {
+      "emission": 20439.34,
+      "totalSupply": 292429.06
+   },
+   "11": {
+      "emission": 19867.52,
+      "totalSupply": 312296.57
+   },
+   "12": {
+      "emission": 19311.69,
+      "totalSupply": 331608.27
+   },
+   "13": {
+      "emission": 18771.42,
+      "totalSupply": 350379.68
+   },
+   "14": {
+      "emission": 18246.26,
+      "totalSupply": 368625.94
+   },
+   "15": {
+      "emission": 17735.79,
+      "totalSupply": 386361.73
+   },
+   "16": {
+      "emission": 17239.6,
+      "totalSupply": 403601.33
+   },
+   "17": {
+      "emission": 16757.3,
+      "totalSupply": 420358.63
+   },
+   "18": {
+      "emission": 16288.49,
+      "totalSupply": 436647.12
+   },
+   "19": {
+      "emission": 15832.79,
+      "totalSupply": 452479.91
+   },
+   "20": {
+      "emission": 15389.84,
+      "totalSupply": 467869.76
+   },
+   "21": {
+      "emission": 14959.29,
+      "totalSupply": 482829.05
+   },
+   "22": {
+      "emission": 14540.78,
+      "totalSupply": 497369.83
+   },
+   "23": {
+      "emission": 14133.98,
+      "totalSupply": 511503.81
+   },
+   "24": {
+      "emission": 13738.56,
+      "totalSupply": 525242.37
+   },
+   "25": {
+      "emission": 13354.2,
+      "totalSupply": 538596.57
+   },
+   "26": {
+      "emission": 12980.6,
+      "totalSupply": 551577.17
+   },
+   "27": {
+      "emission": 12617.45,
+      "totalSupply": 564194.61
+   },
+   "28": {
+      "emission": 12264.45,
+      "totalSupply": 576459.07
+   },
+   "29": {
+      "emission": 11921.34,
+      "totalSupply": 588380.4
+   },
+   "30": {
+      "emission": 11587.82,
+      "totalSupply": 599968.22
+   },
+   "31": {
+      "emission": 11263.63,
+      "totalSupply": 611231.85
+   },
+   "32": {
+      "emission": 10948.51,
+      "totalSupply": 622180.36
+   },
+   "33": {
+      "emission": 10642.21,
+      "totalSupply": 632822.58
+   },
+   "34": {
+      "emission": 10344.48,
+      "totalSupply": 643167.06
+   },
+   "35": {
+      "emission": 10055.08,
+      "totalSupply": 653222.13
+   },
+   "36": {
+      "emission": 9773.77,
+      "totalSupply": 662995.9
+   },
+   "37": {
+      "emission": 9500.33,
+      "totalSupply": 672496.24
+   },
+   "38": {
+      "emission": 9234.55,
+      "totalSupply": 681730.78
+   },
+   "39": {
+      "emission": 8976.2,
+      "totalSupply": 690706.98
+   },
+   "40": {
+      "emission": 8725.07,
+      "totalSupply": 699432.05
+   },
+   "41": {
+      "emission": 8480.98,
+      "totalSupply": 707913.03
+   },
+   "42": {
+      "emission": 8243.71,
+      "totalSupply": 716156.74
+   },
+   "43": {
+      "emission": 8013.08,
+      "totalSupply": 724169.81
+   },
+   "44": {
+      "emission": 7788.9,
+      "totalSupply": 731958.71
+   },
+   "45": {
+      "emission": 7570.99,
+      "totalSupply": 739529.7
+   },
+   "46": {
+      "emission": 7359.18,
+      "totalSupply": 746888.89
+   },
+   "47": {
+      "emission": 7153.3,
+      "totalSupply": 754042.18
+   },
+   "48": {
+      "emission": 6953.17,
+      "totalSupply": 760995.36
+   },
+   "49": {
+      "emission": 6758.65,
+      "totalSupply": 767754
+   },
+   "50": {
+      "emission": 6569.56,
+      "totalSupply": 774323.57
+   },
+   "51": {
+      "emission": 6385.77,
+      "totalSupply": 780709.34
+   },
+   "52": {
+      "emission": 6207.12,
+      "totalSupply": 786916.46
+   },
+   "53": {
+      "emission": 6033.46,
+      "totalSupply": 792949.92
+   },
+   "54": {
+      "emission": 5864.67,
+      "totalSupply": 798814.59
+   },
+   "55": {
+      "emission": 5700.6,
+      "totalSupply": 804515.18
+   },
+   "56": {
+      "emission": 5541.11,
+      "totalSupply": 810056.3
+   },
+   "57": {
+      "emission": 5386.09,
+      "totalSupply": 815442.39
+   },
+   "58": {
+      "emission": 5235.41,
+      "totalSupply": 820677.79
+   },
+   "59": {
+      "emission": 5088.94,
+      "totalSupply": 825766.73
+   },
+   "60": {
+      "emission": 4946.57,
+      "totalSupply": 830713.3
+   },
+   "61": {
+      "emission": 4808.18,
+      "totalSupply": 835521.48
+   },
+   "62": {
+      "emission": 4673.66,
+      "totalSupply": 840195.14
+   },
+   "63": {
+      "emission": 4542.91,
+      "totalSupply": 844738.05
+   },
+   "64": {
+      "emission": 4415.82,
+      "totalSupply": 849153.87
+   },
+   "65": {
+      "emission": 4292.28,
+      "totalSupply": 853446.15
+   },
+   "66": {
+      "emission": 4172.19,
+      "totalSupply": 857618.34
+   },
+   "67": {
+      "emission": 4055.47,
+      "totalSupply": 861673.81
+   },
+   "68": {
+      "emission": 3942.01,
+      "totalSupply": 865615.82
+   },
+   "69": {
+      "emission": 3831.73,
+      "totalSupply": 869447.55
+   },
+   "70": {
+      "emission": 3724.53,
+      "totalSupply": 873172.08
+   },
+   "71": {
+      "emission": 3620.33,
+      "totalSupply": 876792.41
+   },
+   "72": {
+      "emission": 3519.05,
+      "totalSupply": 880311.45
+   },
+   "73": {
+      "emission": 3420.59,
+      "totalSupply": 883732.05
+   },
+   "74": {
+      "emission": 3324.9,
+      "totalSupply": 887056.94
+   },
+   "75": {
+      "emission": 3231.88,
+      "totalSupply": 890288.82
+   },
+   "76": {
+      "emission": 3141.46,
+      "totalSupply": 893430.28
+   },
+   "77": {
+      "emission": 3053.57,
+      "totalSupply": 896483.86
+   },
+   "78": {
+      "emission": 2968.15,
+      "totalSupply": 899452.01
+   },
+   "79": {
+      "emission": 2885.11,
+      "totalSupply": 902337.11
+   },
+   "80": {
+      "emission": 2804.39,
+      "totalSupply": 905141.51
+   },
+   "81": {
+      "emission": 2725.94,
+      "totalSupply": 907867.44
+   },
+   "82": {
+      "emission": 2649.67,
+      "totalSupply": 910517.11
+   },
+   "83": {
+      "emission": 2575.54,
+      "totalSupply": 913092.66
+   },
+   "84": {
+      "emission": 2503.49,
+      "totalSupply": 915596.15
+   },
+   "85": {
+      "emission": 2433.45,
+      "totalSupply": 918029.6
+   },
+   "86": {
+      "emission": 2365.37,
+      "totalSupply": 920394.97
+   },
+   "87": {
+      "emission": 2299.2,
+      "totalSupply": 922694.16
+   },
+   "88": {
+      "emission": 2234.87,
+      "totalSupply": 924929.04
+   },
+   "89": {
+      "emission": 2172.35,
+      "totalSupply": 927101.39
+   },
+   "90": {
+      "emission": 2111.57,
+      "totalSupply": 929212.96
+   },
+   "91": {
+      "emission": 2052.5,
+      "totalSupply": 931265.46
+   },
+   "92": {
+      "emission": 1995.08,
+      "totalSupply": 933260.53
+   },
+   "93": {
+      "emission": 1939.26,
+      "totalSupply": 935199.8
+   },
+   "94": {
+      "emission": 1885.01,
+      "totalSupply": 937084.8
+   },
+   "95": {
+      "emission": 1832.27,
+      "totalSupply": 938917.08
+   },
+   "96": {
+      "emission": 1781.01,
+      "totalSupply": 940698.09
+   },
+   "97": {
+      "emission": 1731.18,
+      "totalSupply": 942429.27
+   },
+   "98": {
+      "emission": 1682.75,
+      "totalSupply": 944112.02
+   },
+   "99": {
+      "emission": 1635.67,
+      "totalSupply": 945747.7
+   },
+   "100": {
+      "emission": 1589.91,
+      "totalSupply": 947337.61
+   },
+   "101": {
+      "emission": 1545.43,
+      "totalSupply": 948883.05
+   },
+   "102": {
+      "emission": 1502.2,
+      "totalSupply": 950385.24
+   },
+   "103": {
+      "emission": 1460.17,
+      "totalSupply": 951845.42
+   },
+   "104": {
+      "emission": 1419.32,
+      "totalSupply": 953264.74
+   },
+   "105": {
+      "emission": 1379.61,
+      "totalSupply": 954644.35
+   },
+   "106": {
+      "emission": 1341.02,
+      "totalSupply": 955985.37
+   },
+   "107": {
+      "emission": 1303.5,
+      "totalSupply": 957288.87
+   },
+   "108": {
+      "emission": 1267.03,
+      "totalSupply": 958555.9
+   },
+   "109": {
+      "emission": 1231.58,
+      "totalSupply": 959787.48
+   },
+   "110": {
+      "emission": 1197.13,
+      "totalSupply": 960984.61
+   },
+   "111": {
+      "emission": 1163.64,
+      "totalSupply": 962148.25
+   },
+   "112": {
+      "emission": 1131.08,
+      "totalSupply": 963279.33
+   },
+   "113": {
+      "emission": 1099.44,
+      "totalSupply": 964378.77
+   },
+   "114": {
+      "emission": 1068.68,
+      "totalSupply": 965447.45
+   },
+   "115": {
+      "emission": 1038.78,
+      "totalSupply": 966486.24
+   },
+   "116": {
+      "emission": 1009.72,
+      "totalSupply": 967495.96
+   },
+   "117": {
+      "emission": 981.47,
+      "totalSupply": 968477.43
+   },
+   "118": {
+      "emission": 954.01,
+      "totalSupply": 969431.44
+   },
+   "119": {
+      "emission": 927.32,
+      "totalSupply": 970358.77
+   },
+   "120": {
+      "emission": 901.38,
+      "totalSupply": 971260.15
+   },
+   "121": {
+      "emission": 876.16,
+      "totalSupply": 972136.31
+   },
+   "122": {
+      "emission": 851.65,
+      "totalSupply": 972987.97
+   },
+   "123": {
+      "emission": 827.83,
+      "totalSupply": 973815.79
+   },
+   "124": {
+      "emission": 804.67,
+      "totalSupply": 974620.46
+   },
+   "125": {
+      "emission": 782.15,
+      "totalSupply": 975402.61
+   },
+   "126": {
+      "emission": 760.27,
+      "totalSupply": 976162.88
+   },
+   "127": {
+      "emission": 739,
+      "totalSupply": 976901.88
+   },
+   "128": {
+      "emission": 718.33,
+      "totalSupply": 977620.21
+   },
+   "129": {
+      "emission": 698.23,
+      "totalSupply": 978318.44
+   },
+   "130": {
+      "emission": 678.7,
+      "totalSupply": 978997.14
+   },
+   "131": {
+      "emission": 659.71,
+      "totalSupply": 979656.85
+   },
+   "132": {
+      "emission": 641.25,
+      "totalSupply": 980298.1
+   },
+   "133": {
+      "emission": 623.31,
+      "totalSupply": 980921.42
+   },
+   "134": {
+      "emission": 605.87,
+      "totalSupply": 981527.29
+   },
+   "135": {
+      "emission": 588.92,
+      "totalSupply": 982116.21
+   },
+   "136": {
+      "emission": 572.45,
+      "totalSupply": 982688.66
+   },
+   "137": {
+      "emission": 556.43,
+      "totalSupply": 983245.1
+   },
+   "138": {
+      "emission": 540.87,
+      "totalSupply": 983785.96
+   },
+   "139": {
+      "emission": 525.73,
+      "totalSupply": 984311.7
+   },
+   "140": {
+      "emission": 511.03,
+      "totalSupply": 984822.72
+   },
+   "141": {
+      "emission": 496.73,
+      "totalSupply": 985319.45
+   },
+   "142": {
+      "emission": 482.83,
+      "totalSupply": 985802.29
+   },
+   "143": {
+      "emission": 469.32,
+      "totalSupply": 986271.61
+   },
+   "144": {
+      "emission": 456.19,
+      "totalSupply": 986727.81
+   },
+   "145": {
+      "emission": 443.43,
+      "totalSupply": 987171.24
+   },
+   "146": {
+      "emission": 431.03,
+      "totalSupply": 987602.26
+   },
+   "147": {
+      "emission": 418.97,
+      "totalSupply": 988021.23
+   },
+   "148": {
+      "emission": 407.25,
+      "totalSupply": 988428.48
+   },
+   "149": {
+      "emission": 395.85,
+      "totalSupply": 988824.33
+   },
+   "150": {
+      "emission": 384.78,
+      "totalSupply": 989209.11
+   },
+   "151": {
+      "emission": 374.01,
+      "totalSupply": 989583.12
+   },
+   "152": {
+      "emission": 363.55,
+      "totalSupply": 989946.67
+   },
+   "153": {
+      "emission": 353.38,
+      "totalSupply": 990300.05
+   },
+   "154": {
+      "emission": 343.49,
+      "totalSupply": 990643.55
+   },
+   "155": {
+      "emission": 333.88,
+      "totalSupply": 990977.43
+   },
+   "156": {
+      "emission": 324.54,
+      "totalSupply": 991301.97
+   },
+   "157": {
+      "emission": 315.46,
+      "totalSupply": 991617.43
+   },
+   "158": {
+      "emission": 306.64,
+      "totalSupply": 991924.07
+   },
+   "159": {
+      "emission": 298.06,
+      "totalSupply": 992222.13
+   },
+   "160": {
+      "emission": 289.72,
+      "totalSupply": 992511.85
+   },
+   "161": {
+      "emission": 281.61,
+      "totalSupply": 992793.46
+   },
+   "162": {
+      "emission": 273.74,
+      "totalSupply": 993067.2
+   },
+   "163": {
+      "emission": 266.08,
+      "totalSupply": 993333.28
+   },
+   "164": {
+      "emission": 258.63,
+      "totalSupply": 993591.91
+   },
+   "165": {
+      "emission": 251.4,
+      "totalSupply": 993843.31
+   },
+   "166": {
+      "emission": 244.36,
+      "totalSupply": 994087.67
+   },
+   "167": {
+      "emission": 237.53,
+      "totalSupply": 994325.2
+   },
+   "168": {
+      "emission": 230.88,
+      "totalSupply": 994556.08
+   },
+   "169": {
+      "emission": 224.42,
+      "totalSupply": 994780.51
+   },
+   "170": {
+      "emission": 218.15,
+      "totalSupply": 994998.65
+   },
+   "171": {
+      "emission": 212.04,
+      "totalSupply": 995210.7
+   },
+   "172": {
+      "emission": 206.11,
+      "totalSupply": 995416.81
+   },
+   "173": {
+      "emission": 200.34,
+      "totalSupply": 995617.15
+   },
+   "174": {
+      "emission": 194.74,
+      "totalSupply": 995811.89
+   },
+   "175": {
+      "emission": 189.29,
+      "totalSupply": 996001.18
+   },
+   "176": {
+      "emission": 184,
+      "totalSupply": 996185.17
+   },
+   "177": {
+      "emission": 178.85,
+      "totalSupply": 996364.02
+   },
+   "178": {
+      "emission": 173.84,
+      "totalSupply": 996537.87
+   },
+   "179": {
+      "emission": 168.98,
+      "totalSupply": 996706.85
+   },
+   "180": {
+      "emission": 164.25,
+      "totalSupply": 996871.1
+   },
+   "181": {
+      "emission": 159.66,
+      "totalSupply": 997030.76
+   },
+   "182": {
+      "emission": 155.19,
+      "totalSupply": 997185.95
+   },
+   "183": {
+      "emission": 150.85,
+      "totalSupply": 997336.8
+   },
+   "184": {
+      "emission": 146.63,
+      "totalSupply": 997483.43
+   },
+   "185": {
+      "emission": 142.53,
+      "totalSupply": 997625.95
+   },
+   "186": {
+      "emission": 138.54,
+      "totalSupply": 997764.49
+   },
+   "187": {
+      "emission": 134.66,
+      "totalSupply": 997899.16
+   },
+   "188": {
+      "emission": 130.9,
+      "totalSupply": 998030.05
+   },
+   "189": {
+      "emission": 127.23,
+      "totalSupply": 998157.29
+   },
+   "190": {
+      "emission": 123.67,
+      "totalSupply": 998280.96
+   },
+   "191": {
+      "emission": 120.21,
+      "totalSupply": 998401.17
+   },
+   "192": {
+      "emission": 116.85,
+      "totalSupply": 998518.03
+   },
+   "193": {
+      "emission": 113.58,
+      "totalSupply": 998631.61
+   },
+   "194": {
+      "emission": 110.4,
+      "totalSupply": 998742.01
+   },
+   "195": {
+      "emission": 107.32,
+      "totalSupply": 998849.33
+   },
+   "196": {
+      "emission": 104.31,
+      "totalSupply": 998953.64
+   },
+   "197": {
+      "emission": 101.4,
+      "totalSupply": 999055.04
+   },
+   "198": {
+      "emission": 98.56,
+      "totalSupply": 999153.6
+   },
+   "199": {
+      "emission": 95.8,
+      "totalSupply": 999249.4
+   },
+   "200": {
+      "emission": 93.12,
+      "totalSupply": 999342.52
+   },
+   "201": {
+      "emission": 90.52,
+      "totalSupply": 999433.03
+   },
+   "202": {
+      "emission": 87.98,
+      "totalSupply": 999521.02
+   },
+   "203": {
+      "emission": 85.52,
+      "totalSupply": 999606.54
+   },
+   "204": {
+      "emission": 83.13,
+      "totalSupply": 999689.67
+   },
+   "205": {
+      "emission": 80.8,
+      "totalSupply": 999770.47
+   },
+   "206": {
+      "emission": 78.54,
+      "totalSupply": 999849.02
+   },
+   "207": {
+      "emission": 76.35,
+      "totalSupply": 999925.36
+   },
+   "208": {
+      "emission": 74.21,
+      "totalSupply": 999999.57
+   }
+}

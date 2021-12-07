@@ -1,0 +1,49 @@
+{
+  "address": "",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract AmpliFARM",
+          "name": "ampliFarm",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountAmpliFarm",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "calculateBoostedAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}

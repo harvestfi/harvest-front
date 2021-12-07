@@ -1,0 +1,6 @@
+build/
+node_modules/
+submodules/
+src/assets/*
+src/serviceWorker.js
+src/data/harvest-api

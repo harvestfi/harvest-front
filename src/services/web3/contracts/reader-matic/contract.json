@@ -1,0 +1,67 @@
+{
+  "address": "0xc3F7ffb5d5869B3ade9448D094d81B0521e8326f",
+  "abi": [
+    {
+      "inputs": [
+        { "internalType": "address", "name": "who", "type": "address" },
+        { "internalType": "address[]", "name": "vaults", "type": "address[]" },
+        { "internalType": "address[]", "name": "pools", "type": "address[]" }
+      ],
+      "name": "getAllInformation",
+      "outputs": [
+        { "internalType": "uint256[]", "name": "", "type": "uint256[]" },
+        { "internalType": "uint256[]", "name": "", "type": "uint256[]" },
+        { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "who", "type": "address" },
+        { "internalType": "address[]", "name": "pools", "type": "address[]" }
+      ],
+      "name": "stakedBalances",
+      "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "who", "type": "address" },
+        { "internalType": "address[]", "name": "vaults", "type": "address[]" }
+      ],
+      "name": "underlyingBalanceWithInvestmentForHolder",
+      "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "who", "type": "address" },
+        { "internalType": "address[]", "name": "vaults", "type": "address[]" }
+      ],
+      "name": "underlyingBalances",
+      "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "who", "type": "address" },
+        { "internalType": "address[]", "name": "vaults", "type": "address[]" }
+      ],
+      "name": "unstakedBalances",
+      "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "address[]", "name": "vaults", "type": "address[]" }],
+      "name": "vaultSharePrices",
+      "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}

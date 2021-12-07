@@ -1,0 +1,17 @@
+{
+  "buildpacks": [
+    {
+      "url": "https://github.com/dmathieu/heroku-buildpack-submodules"
+    },
+    {
+      "url": "mars/create-react-app"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "yarn lint"
+      }
+    }
+  }
+}
