@@ -252,7 +252,7 @@ export const getRewardsText = (
       ? token.apyTokenSymbols
       : token.apyTokenSymbols.filter(symbol => symbol !== 'UNI')
 
-    if (rewardSymbols.length) {
+    if (rewardSymbols && rewardSymbols.length) {
       rewardSymbols.forEach((symbol, i) => {
         if (get(token, `estimatedApyBreakdown[${i}]`)) {
           components.push(
