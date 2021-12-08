@@ -102,6 +102,16 @@ const VaultApy = ({ token, tokenSymbol, vaultPool, setTooltipContent, isSpecialV
             <>
               {totalApy ? displayAPY(totalApy) : null}
               <FARMIcon token={token} vaultPool={vaultPool} farmAPY={rewardAPY[0]} />
+              {size(vaultPool.rewardTokenSymbols) >= 2 &&
+                vaultPool.rewardTokenSymbols.map((symbol, symbolIdx) =>
+                  symbolIdx !== 0 && symbolIdx < vaultPool.rewardTokens.length ? (
+                    <SmallLogo
+                      key={symbol}
+                      margin="0px 5px 0px 0px"
+                      src={`./icons/${symbol.toLowerCase()}.png`}
+                    />
+                  ) : null,
+                )}
             </>
           )}
         </RewardsContainer>
@@ -157,32 +167,37 @@ const VaultApy = ({ token, tokenSymbol, vaultPool, setTooltipContent, isSpecialV
             'Inactive'
           ) : null
         ) : (
-          <b>
-            {isAmpliFARM
-              ? `${displayAPY(
-                  new BigNumber(totalApy).minus(get(vaultPool, 'boostedRewardAPY', 0)).toFixed(2),
-                  DECIMAL_PRECISION,
-                  10,
-                )}→${displayAPY(totalApy, DECIMAL_PRECISION, 10)}`
-              : displayAPY(totalApy, DECIMAL_PRECISION, 10)}
-            &nbsp;
-          </b>
-        )}{' '}
-        {token.apyIconUrls
-          ? token.apyIconUrls.map(url => <SmallLogo key={url} margin="0px 5px 0px 0px" src={url} />)
-          : null}
-        {!isHodlVault &&
-          size(vaultPool.rewardTokenSymbols) >= 2 &&
-          vaultPool.rewardTokenSymbols.map((symbol, symbolIdx) =>
-            symbolIdx !== 0 && symbolIdx < vaultPool.rewardTokens.length ? (
-              <SmallLogo
-                key={symbol}
-                margin="0px 5px 0px 0px"
-                src={`./icons/${symbol.toLowerCase()}.png`}
-              />
-            ) : null,
-          )}
-        <FARMIcon token={token} vaultPool={vaultPool} farmAPY={rewardAPY[0]} />
+          <>
+            <b>
+              {isAmpliFARM
+                ? `${displayAPY(
+                    new BigNumber(totalApy).minus(get(vaultPool, 'boostedRewardAPY', 0)).toFixed(2),
+                    DECIMAL_PRECISION,
+                    10,
+                  )}→${displayAPY(totalApy, DECIMAL_PRECISION, 10)}`
+                : displayAPY(totalApy, DECIMAL_PRECISION, 10)}
+              &nbsp;
+            </b>
+            {token.apyIconUrls
+              ? token.apyIconUrls.map(url => (
+                  <SmallLogo key={url} margin="0px 5px 0px 0px" src={url} />
+                ))
+              : null}
+            {!token.inactive &&
+              !isHodlVault &&
+              size(vaultPool.rewardTokenSymbols) >= 2 &&
+              vaultPool.rewardTokenSymbols.map((symbol, symbolIdx) =>
+                symbolIdx !== 0 && symbolIdx < vaultPool.rewardTokens.length ? (
+                  <SmallLogo
+                    key={symbol}
+                    margin="0px 5px 0px 0px"
+                    src={`./icons/${symbol.toLowerCase()}.png`}
+                  />
+                ) : null,
+              )}
+            <FARMIcon token={token} vaultPool={vaultPool} farmAPY={rewardAPY[0]} />
+          </>
+        )}
       </RewardsContainer>
     </div>
   ) : (
