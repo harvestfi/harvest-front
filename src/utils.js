@@ -280,16 +280,6 @@ export const getRewardsText = (
       components.push(
         `<b>${displayAPY(boostedRewardAPY)}</b> <b>iFARM</b> auto-compounding rewards`,
       )
-
-      if (isUniv3Vault) {
-        components.push(
-          get(
-            vaultPool,
-            'vestingDescriptionOverride[iFARM]',
-            '2/3rds of <b>iFARM</b> rewards are vested for 6 months',
-          ),
-        )
-      }
     }
 
     if (Number(farmAPY) > 0) {
