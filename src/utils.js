@@ -1,11 +1,10 @@
 import BigNumber from 'bignumber.js'
-import { get, isArray, isEmpty, size as arraySize, sumBy } from 'lodash'
+import { get, isArray, isEmpty, size as arraySize, sumBy, sum } from 'lodash'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 import ReactHtmlParser from 'react-html-parser'
 import mobile from 'is-mobile'
 import { addresses } from './data/index'
-import weeklyEmissions from './data/weeklyEmissions.json'
 import {
   KEY_CODES,
   DECIMAL_PRECISION,
@@ -127,18 +126,25 @@ export const formatAddress = address => {
 }
 
 export const getTotalFARMSupply = () => {
-  const weeksSinceLaunch = (new Date() - HARVEST_LAUNCH_DATE) / (7 * 24 * 60 * 60 * 1000)
+  const earlyEmissions = [57569.1, 51676.2, 26400.0, 24977.5]
+  const weeksSinceLaunch = Math.floor(
+    (new Date() - HARVEST_LAUNCH_DATE) / (7 * 24 * 60 * 60 * 1000),
+  ) // Get number of weeks (including partial) between now, and the launch date
+  let thisWeeksSupply = 690420
 
-  const thisWeeksSupply = weeklyEmissions[Math.floor(weeksSinceLaunch)].emission
+  if (weeksSinceLaunch <= 208) {
+    const emissionsWeek5 = 23555.0
+    const emissionsWeeklyScale = 0.95554375
 
-  const totalSupplyBeforethisWeek = weeklyEmissions[Math.floor(weeksSinceLaunch)].totalSupply
+    const totalOfEarlyEmissions = sum(earlyEmissions)
 
-  const pecentageOfWeekComplete = weeksSinceLaunch - Math.floor(weeksSinceLaunch)
+    thisWeeksSupply =
+      totalOfEarlyEmissions +
+      (emissionsWeek5 * (1 - emissionsWeeklyScale ** (weeksSinceLaunch - 4))) /
+        (1 - emissionsWeeklyScale)
+  }
 
-  return new BigNumber(thisWeeksSupply)
-    .times(pecentageOfWeekComplete)
-    .plus(totalSupplyBeforethisWeek)
-    .toString()
+  return thisWeeksSupply
 }
 
 export const getNextEmissionsCutDate = () => {
