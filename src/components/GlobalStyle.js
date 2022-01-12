@@ -19,7 +19,7 @@ html {
     min-height: 100%;
     background-size: 100vw auto;
     background-position: bottom left;
-    padding-bottom: 3%;
+    padding-bottom: 1%;
   }
 
   #root {
