@@ -179,7 +179,9 @@ const formatVaults = (
     vaultsSymbol = vaultsSymbol.filter(tokenSymbol => {
       if (
         selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE ||
-        selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE_BSC
+        selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE_BSC ||
+        selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE_POLYGON ||
+        depositedOnly
       ) {
         return (
           stringToArray(groupOfVaults[tokenSymbol].category).includes(selectedCategory) ||
@@ -189,7 +191,7 @@ const formatVaults = (
       }
       return stringToArray(groupOfVaults[tokenSymbol].category).includes(selectedCategory)
     })
-  } else {
+  } else if (!depositedOnly) {
     vaultsSymbol = vaultsSymbol.filter(
       tokenSymbol =>
         !groupOfVaults[tokenSymbol].inactive && !groupOfVaults[tokenSymbol].testInactive,
