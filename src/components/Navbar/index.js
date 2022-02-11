@@ -48,6 +48,11 @@ const navLinks = [
     name: 'Work',
   },
   {
+    path: ROUTES.VESTING,
+    name: 'Vesting',
+    newTab: true,
+  },
+  {
     path: '#',
     name: 'Help',
     subItems: [
