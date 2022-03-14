@@ -6,7 +6,7 @@ while true; do
         git submodule update --remote --merge
         yarn install
 	yarn build
-        yarn pm2:restart-ui
+        yarn pm:restart-ui
     fi
     sleep 300 # Sleep for 5 minutes
 done
