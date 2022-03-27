@@ -145,6 +145,8 @@ const PoolHeadActions = ({
         {!withdrawMode ? (
           <>
             <Button
+              color="primary"
+              size="md"
               width="100%"
               onClick={async () => {
                 if (useIFARM && isFARMVault) {
@@ -213,6 +215,8 @@ const PoolHeadActions = ({
           </>
         ) : (
           <Button
+            color="primary"
+            size="md"
             width="100%"
             onClick={async () => {
               if (useIFARM && isFARMVault) {

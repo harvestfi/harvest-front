@@ -197,6 +197,7 @@ const Farm = () => {
           />
           <Divider height="47px" />
           <Button
+            color="primary"
             onClick={() =>
               window.open(
                 `https://app.bancor.network/eth/swap?from=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&to=${addresses.FARM}`,

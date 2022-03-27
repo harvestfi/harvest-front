@@ -129,6 +129,8 @@ const VaultHeadActionsMigrate = ({
         </MigrateOptionsContainer>
       ) : null}
       <Button
+        color="primary"
+        size="md"
         width="100%"
         maxHeight="34px"
         onClick={async () => {

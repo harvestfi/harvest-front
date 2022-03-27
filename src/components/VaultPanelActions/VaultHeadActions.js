@@ -173,6 +173,8 @@ const VaultHeadActions = ({
               </DepositOptionsContainer>
             ) : null}
             <Button
+              color="primary"
+              size="md"
               width="100%"
               maxHeight="34px"
               onClick={async () => {
@@ -264,6 +266,8 @@ const VaultHeadActions = ({
               />
               <Divider height="10px" />
               <Button
+                color="primary"
+                size="md"
                 width="100%"
                 onClick={async () => {
                   let autoUnstakeCompleted = null

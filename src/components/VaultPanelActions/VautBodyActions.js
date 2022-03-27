@@ -192,6 +192,7 @@ const VaultBodyActions = ({
           </SelectedVaultLabel>
         )}
         <Button
+          color="primary"
           width="50%"
           height="38px"
           size="md"

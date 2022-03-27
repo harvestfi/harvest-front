@@ -123,6 +123,7 @@ const VaultFooterActions = ({
         <Button
           data-for={`claim-tooltip-${tokenSymbol}`}
           data-tip=""
+          color="primary"
           width="50%"
           height="38px"
           size="md"

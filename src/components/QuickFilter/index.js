@@ -62,6 +62,7 @@ const QuickFilter = ({
         <Button
           color={selectedCategory === null ? 'secondary' : 'info'}
           size="sm"
+          fontWeight="500"
           onClick={() => onCategoryClick(null)}
           width="max-content"
         >
@@ -75,6 +76,7 @@ const QuickFilter = ({
                 <Button
                   color={selectedCategory === categoryId ? 'secondary' : 'info'}
                   size="sm"
+                  fontWeight="500"
                   key={VAULT_CATEGORIES_NAMES[categoryId]}
                   onClick={() => onCategoryClick(categoryId)}
                   width="max-content"
@@ -89,6 +91,7 @@ const QuickFilter = ({
           <Button
             color={selectedCategory === inactiveCategoryId ? 'secondary' : 'info'}
             size="sm"
+            fontWeight="500"
             onClick={() => onCategoryClick(inactiveCategoryId)}
             width="max-content"
           >

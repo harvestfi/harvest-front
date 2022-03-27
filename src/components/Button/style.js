@@ -11,7 +11,7 @@ const ButtonStyle = styled.button`
   height: ${props => props.height || 'unset'};
   margin: ${props => props.margin || 'unset'};
   border-radius: 10px;
-  font-weight: 500;
+  font-weight: 800;
   cursor: pointer;
   outline: 0;
   transition: 0.25s;
@@ -26,6 +26,12 @@ const ButtonStyle = styled.button`
   line-height: 24px;`
       : ''}
 
+  ${props =>
+    props.fontWeight
+      ? `
+  font-weight: ${props.fontWeight};`
+      : ''}
+    
 ${props =>
   props.size === 'md'
     ? `
