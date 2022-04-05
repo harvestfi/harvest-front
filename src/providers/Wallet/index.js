@@ -81,6 +81,7 @@ const WalletProvider = _ref => {
   const [balancesToLoad, setBalancesToLoad] = useState([])
   const [approvedBalances, setApprovedBalances] = useState({})
   const { contracts } = useContracts()
+
   const onNetworkChange = useCallback(
     newChain => {
       validateChain(
@@ -95,6 +96,8 @@ const WalletProvider = _ref => {
               newChain,
             )}).\nSwitch to the correct chain in your wallet`,
           )
+          setConnected(false)
+          setAccount(null)
         },
       )
     },
@@ -103,7 +106,7 @@ const WalletProvider = _ref => {
   useEffect(() => {
     let accountEmitter, networkEmitter
 
-    if (web3Plugin && web3Plugin._provider.on && connected) {
+    if (web3Plugin && web3Plugin._provider.on && account) {
       accountEmitter = web3Plugin._provider.on('accountsChanged', accountAddress =>
         validateAccount(accountAddress, setAccount),
       )
@@ -116,7 +119,7 @@ const WalletProvider = _ref => {
         networkEmitter.removeListener('chainChanged', onNetworkChange)
       }
     }
-  }, [web3Plugin, chain, connected, onNetworkChange])
+  }, [web3Plugin, chain, account, onNetworkChange])
   const connect = useCallback(async () => {
     if (web3Plugin) {
       try {
@@ -124,9 +127,10 @@ const WalletProvider = _ref => {
         const hasOutdatedMetaMask = !isUndefined(
           get(web3Plugin, 'currentProvider.autoRefreshOnNetworkChange'),
         )
-
+        setAccount(null)
         if (
-          get(web3Plugin, 'currentProvider.isMetaMask') &&
+          (get(web3Plugin, 'currentProvider.isMetaMask') ||
+            get(web3Plugin, 'currentProvider.isCoinbaseWallet')) &&
           !hasOutdatedMetaMask &&
           !isMobileWeb3
         ) {
@@ -274,6 +278,7 @@ const WalletProvider = _ref => {
     },
     [setBalances, contracts, account, approvedBalances, balances],
   )
+
   return React.createElement(
     WalletContext.Provider,
     {

@@ -70,14 +70,14 @@ const QuickFilter = ({
         </Button>
         {categories
           .filter(categoryId => categoryId !== inactiveCategoryId)
-          .map(categoryId => {
+          .map((categoryId, i) => {
             if (categoryId) {
               return (
                 <Button
+                  key={i}
                   color={selectedCategory === categoryId ? 'secondary' : 'info'}
                   size="sm"
                   fontWeight="500"
-                  key={VAULT_CATEGORIES_NAMES[categoryId]}
                   onClick={() => onCategoryClick(categoryId)}
                   width="max-content"
                 >

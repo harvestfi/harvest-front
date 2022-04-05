@@ -3,6 +3,7 @@ import { SafeAppWeb3Modal } from '@gnosis.pm/safe-apps-web3modal'
 import BigNumber from 'bignumber.js'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { BscConnector } from '@binance-chain/bsc-connector'
+import CoinbaseWalletSDK from '@coinbase/wallet-sdk'
 import mobile from 'is-mobile'
 import { get } from 'lodash'
 import contracts from './contracts'
@@ -26,6 +27,17 @@ import { CHAINS_ID } from '../../data/constants'
 const providerOptions = {
   injected: {
     package: null,
+  },
+  coinbasewallet: {
+    package: CoinbaseWalletSDK,
+    options: {
+      appName: 'Harvest Finance',
+      rpc: {
+        [CHAINS_ID.ETH_MAINNET]: INFURA_URL,
+        [CHAINS_ID.BSC_MAINNET]: BSC_URL,
+        [CHAINS_ID.MATIC_MAINNET]: MATIC_URL,
+      },
+    },
   },
   walletconnect: {
     package: WalletConnectProvider,
