@@ -1,11 +1,6 @@
 {
   "apps": [
     {
-      "name": "check-updates",
-      "script": "./check-updates.sh",
-      "watch": false
-    },
-    {
       "name": "ui",
       "script": "./server.js",
       "watch": false
