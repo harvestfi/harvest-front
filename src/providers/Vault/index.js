@@ -113,7 +113,6 @@ const VaultsProvider = _ref => {
               currentCap,
               maxToDeposit: new BigNumber(capLimit).minus(new BigNumber(currentCap)),
               ranges,
-              currentRange: apiData[vaultSymbol].currentRange,
             }
           }
           dataFetched = !apiFailed
