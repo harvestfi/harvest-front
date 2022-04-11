@@ -57,8 +57,8 @@ const VaultHeadActions = ({
 
   let capDisabled = false
 
-  if (token.uniswapV3MangedData.capToken) {
-    capDisabled = !(token.uniswapV3MangedData.maxToDeposit > 0)
+  if (token.uniswapV3ManagedData?.capToken) {
+    capDisabled = !(token.uniswapV3ManagedData.maxToDeposit > 0)
   }
 
   const getDepositButtonText = action => {

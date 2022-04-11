@@ -15,7 +15,6 @@ import { toast } from 'react-toastify'
 import useEffectWithPrevious from 'use-effect-with-previous'
 import { calculateFarmingBalance, filterVaults } from './utils'
 import { IFARM_TOKEN_SYMBOL, VAULTS_API_ENDPOINT } from '../../constants'
-import { VAULT_CATEGORIES_IDS } from '../../data/constants'
 import { useWallet } from '../Wallet'
 import { usePools } from '../Pools'
 import vaultContractData from '../../services/web3/contracts/vault/contract.json'
@@ -74,8 +73,9 @@ const VaultsProvider = _ref => {
           uniswapV3PositionId = null,
           uniswapV3UnderlyingTokenPrices = [],
           subLabel = null,
-          uniswapV3MangedData = {},
+          uniswapV3ManagedData = null,
           dataFetched = false
+
         const isIFARM = vaultSymbol === IFARM_TOKEN_SYMBOL
         const hasMultipleAssets = isArray(importedVaults[vaultSymbol].tokenAddress)
         const instance = await newContractInstance(
@@ -99,23 +99,17 @@ const VaultsProvider = _ref => {
             : apiData[vaultSymbol].pricePerFullShare
           uniswapV3PositionId = apiData[vaultSymbol].uniswapV3PositionId
           uniswapV3UnderlyingTokenPrices = apiData[vaultSymbol].uniswapV3UnderlyingTokenPrices
-          if (VAULT_CATEGORIES_IDS.UNIV3MANAGED === apiData[vaultSymbol].category) {
-            const { capLimit } = apiData[vaultSymbol]
-            const { currentCap } = apiData[vaultSymbol]
-            const { ranges } = apiData[vaultSymbol]
+          if (apiData[vaultSymbol].uniswapV3ManagedData) {
+            const { capLimit, currentCap, ranges } = apiData[vaultSymbol].uniswapV3ManagedData
             const upper = abbreaviteNumber(Math.floor(ranges[0].upperBound / 100) * 100, 1)
             const lower = abbreaviteNumber(
               Math.floor(ranges[ranges.length - 1].lowerBound / 100) * 100,
               1,
             )
             subLabel = `${lower.toString()}⟷${upper.toString()}`
-            uniswapV3MangedData = {
+            uniswapV3ManagedData = {
+              ...apiData[vaultSymbol].uniswapV3ManagedData,
               capLimit,
-              capToken: apiData[vaultSymbol].capToken,
-              capTokenSymbol: apiData[vaultSymbol].capTokenSymbol,
-              capTokenDecimal: apiData[vaultSymbol].capTokenDecimal,
-              depositReached: apiData[vaultSymbol].depositReached,
-              withdrawalTimestamp: apiData[vaultSymbol].withdrawalTimestamp,
               currentCap,
               maxToDeposit: new BigNumber(capLimit).minus(new BigNumber(currentCap)),
               ranges,
@@ -154,7 +148,7 @@ const VaultsProvider = _ref => {
           uniswapV3UnderlyingTokenPrices,
           pool: tokenPool,
           subLabel,
-          uniswapV3MangedData,
+          uniswapV3ManagedData,
         }
       })
 

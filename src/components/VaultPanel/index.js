@@ -89,7 +89,7 @@ const VaultPanel = ({
   const isSpecialVault = token.liquidityPoolVault || token.poolVault
 
   const isUniV3ManagedVault = !!(
-    token.uniswapV3MangedData?.capToken && token.uniswapV3MangedData.capToken !== ''
+    token.uniswapV3ManagedData?.capToken && token.uniswapV3ManagedData.capToken !== ''
   )
 
   const tokenDecimals = token.decimals || tokens[tokenSymbol].decimals

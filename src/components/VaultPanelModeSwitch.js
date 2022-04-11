@@ -30,9 +30,9 @@ const VaultPanelModeSwitch = ({
   let withdrawalTimestamp = 0,
     timeLimited = false
 
-  if (token.uniswapV3MangedData.capToken) {
-    withdrawalTimestamp = token.uniswapV3MangedData.withdrawalTimestamp
-      ? parseInt(token.uniswapV3MangedData.withdrawalTimestamp, 10)
+  if (token.uniswapV3ManagedData?.capToken) {
+    withdrawalTimestamp = token.uniswapV3ManagedData.withdrawalTimestamp
+      ? parseInt(token.uniswapV3ManagedData.withdrawalTimestamp, 10)
       : 0
     timeLimited = !(Date.now() >= withdrawalTimestamp)
   }
