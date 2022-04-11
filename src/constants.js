@@ -665,6 +665,7 @@ export const PANEL_ACTIONS_TYPE = {
   BODY: 1,
   FOOTER: 2,
   MIGRATE: 3,
+  UNIV3MANAGED: 4,
 }
 
 export const IFARM_DEPOSIT_TOOLTIP = (

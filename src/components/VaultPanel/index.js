@@ -88,6 +88,10 @@ const VaultPanel = ({
 
   const isSpecialVault = token.liquidityPoolVault || token.poolVault
 
+  const isUniV3ManagedVault = !!(
+    token.uniswapV3MangedData?.capToken && token.uniswapV3MangedData.capToken !== ''
+  )
+
   const tokenDecimals = token.decimals || tokens[tokenSymbol].decimals
 
   const fAssetSymbol = isSpecialVault ? tokenSymbol : `f${tokenSymbol}`
@@ -487,6 +491,9 @@ const VaultPanel = ({
           lazyRender
         >
           <VaultBody>
+            {isUniV3ManagedVault && (
+              <VaultPanelActions type={PANEL_ACTIONS_TYPE.UNIV3MANAGED} {...viewComponentProps} />
+            )}
             <FormGroup>
               <InputControl
                 flexDirection={!withdrawMode && multipleAssets ? 'column' : 'row'}

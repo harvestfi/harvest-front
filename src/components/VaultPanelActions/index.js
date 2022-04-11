@@ -21,6 +21,7 @@ import tokenMethods from '../../services/web3/contracts/token/methods'
 import poolMethods from '../../services/web3/contracts/pool/methods'
 import vaultMethods from '../../services/web3/contracts/vault/methods'
 import { calculateRewardsEarned } from '../../providers/Pools/utils'
+import UniV3ManagedVaultActions from './UniV3ManagedVaultActions'
 import VaultFooterActions from './VaultFooterActions'
 import VaultBodyActions from './VautBodyActions'
 import VaultHeadActions from './VaultHeadActions'
@@ -217,6 +218,10 @@ const VaultPanelActions = ({
     hasHodlCategory,
     poolRewardSymbol: getPoolRewardSymbol(chain),
     ...props,
+  }
+
+  if (type === PANEL_ACTIONS_TYPE.UNIV3MANAGED) {
+    return <UniV3ManagedVaultActions {...token} />
   }
 
   if (type === PANEL_ACTIONS_TYPE.HEAD && isSpecialVault) {

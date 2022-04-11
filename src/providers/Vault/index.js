@@ -7,6 +7,7 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
+import BigNumber from 'bignumber.js'
 import { forEach } from 'promised-loops'
 import axios from 'axios'
 import { get, pickBy, merge, isArray } from 'lodash'
@@ -14,6 +15,7 @@ import { toast } from 'react-toastify'
 import useEffectWithPrevious from 'use-effect-with-previous'
 import { calculateFarmingBalance, filterVaults } from './utils'
 import { IFARM_TOKEN_SYMBOL, VAULTS_API_ENDPOINT } from '../../constants'
+import { VAULT_CATEGORIES_IDS } from '../../data/constants'
 import { useWallet } from '../Wallet'
 import { usePools } from '../Pools'
 import vaultContractData from '../../services/web3/contracts/vault/contract.json'
@@ -25,6 +27,7 @@ import {
   newContractInstance,
   pollUpdatedBalance,
 } from '../../services/web3'
+import { abbreaviteNumber } from '../../utils'
 
 const { tokens, addresses } = require('../../data')
 
@@ -70,6 +73,8 @@ const VaultsProvider = _ref => {
           boostedEstimatedAPY = null,
           uniswapV3PositionId = null,
           uniswapV3UnderlyingTokenPrices = [],
+          subLabel = null,
+          uniswapV3MangedData = {},
           dataFetched = false
         const isIFARM = vaultSymbol === IFARM_TOKEN_SYMBOL
         const hasMultipleAssets = isArray(importedVaults[vaultSymbol].tokenAddress)
@@ -94,6 +99,29 @@ const VaultsProvider = _ref => {
             : apiData[vaultSymbol].pricePerFullShare
           uniswapV3PositionId = apiData[vaultSymbol].uniswapV3PositionId
           uniswapV3UnderlyingTokenPrices = apiData[vaultSymbol].uniswapV3UnderlyingTokenPrices
+          if (VAULT_CATEGORIES_IDS.UNIV3MANAGED === apiData[vaultSymbol].category) {
+            const { capLimit } = apiData[vaultSymbol]
+            const { currentCap } = apiData[vaultSymbol]
+            const { ranges } = apiData[vaultSymbol]
+            const upper = abbreaviteNumber(Math.floor(ranges[0].upperBound / 100) * 100, 1)
+            const lower = abbreaviteNumber(
+              Math.floor(ranges[ranges.length - 1].lowerBound / 100) * 100,
+              1,
+            )
+            subLabel = `${lower.toString()}⟷${upper.toString()}`
+            uniswapV3MangedData = {
+              capLimit,
+              capToken: apiData[vaultSymbol].capToken,
+              capTokenSymbol: apiData[vaultSymbol].capTokenSymbol,
+              capTokenDecimal: apiData[vaultSymbol].capTokenDecimal,
+              depositReached: apiData[vaultSymbol].depositReached,
+              withdrawalTimestamp: apiData[vaultSymbol].withdrawalTimestamp,
+              currentCap,
+              maxToDeposit: new BigNumber(capLimit).minus(new BigNumber(currentCap)),
+              ranges,
+              currentRange: apiData[vaultSymbol].currentRange,
+            }
+          }
           dataFetched = !apiFailed
         } else if (isIFARM) {
           totalSupply = await getTotalSupply(instance, web3Client)
@@ -125,6 +153,8 @@ const VaultsProvider = _ref => {
           dataFetched,
           uniswapV3UnderlyingTokenPrices,
           pool: tokenPool,
+          subLabel,
+          uniswapV3MangedData,
         }
       })
 

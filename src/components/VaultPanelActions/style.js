@@ -1,5 +1,18 @@
 import styled from 'styled-components'
 
+const UniV3VaultContainer = styled.div`
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dadfe6;
+
+  @media screen and (max-width: 670px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+`
+
 const PrimaryActionsContainer = styled.div`
   display: grid;
   padding-left: 30px;
@@ -112,6 +125,36 @@ const SelectedVaultNumber = styled.span`
   text-align: center;
 `
 
+const RangeGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+
+  @media screen and (max-width: 670px) {
+    align-items: center;
+    border-left: unset;
+    border-top: 1px solid #dadfe6;
+    padding-top: 20px;
+    margin-top: 15px;
+  }
+`
+
+const VaultRangeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 16px;
+`
+
+const VaultRange = styled.span`
+  font-weight: 500;
+  font-size: 14px !important;
+  color: ${props => props.color || 'black'};
+  text-align: left;
+`
+
 const SelectedVaultTokenInfo = styled.div`
   margin-left: 10px;
   display: flex;
@@ -119,6 +162,7 @@ const SelectedVaultTokenInfo = styled.div`
 `
 
 export {
+  UniV3VaultContainer,
   PrimaryActionsContainer,
   DepositOptionsContainer,
   SelectedVaultTokenInfo,
@@ -126,5 +170,8 @@ export {
   SelectedVault,
   SelectedVaultLabel,
   SelectedVaultNumber,
+  RangeGroup,
+  VaultRangeContainer,
+  VaultRange,
   MigrateOptionsContainer,
 }
