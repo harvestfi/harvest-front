@@ -1,6 +1,6 @@
 # harvest-front
 
-A web application to make your hard work easier with [harvest.finance](https://harvest.finance)
+A web application to make your hard work easier with [harvest.finance](https://harvest.finance).
 
 ## Getting started
 
