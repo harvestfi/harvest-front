@@ -72,7 +72,7 @@ const VaultsProvider = _ref => {
           boostedEstimatedAPY = null,
           uniswapV3PositionId = null,
           uniswapV3UnderlyingTokenPrices = [],
-          subLabel = null,
+          { subLabel } = importedVaults[vaultSymbol],
           uniswapV3ManagedData = null,
           dataFetched = false
 

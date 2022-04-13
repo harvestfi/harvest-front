@@ -42,7 +42,7 @@ const UniV3ManagedVaultActions = token => {
           Deposit Cap{' '}
           <FontAwesomeIcon
             icon={faInfoCircle}
-            color="green"
+            color="#249669"
             data-tip=""
             data-for="univ3-vault-available"
           />
@@ -73,7 +73,7 @@ const UniV3ManagedVaultActions = token => {
           Withdrawals allowed after:{' '}
           <FontAwesomeIcon
             icon={faInfoCircle}
-            color="green"
+            color="#249669"
             data-tip=""
             data-for="univ3-locked-time"
           />
@@ -102,7 +102,7 @@ const UniV3ManagedVaultActions = token => {
           Ranges:{' '}
           <FontAwesomeIcon
             icon={faInfoCircle}
-            color="green"
+            color="#249669"
             data-tip=""
             data-for="univ3-vault-ranges"
           />
@@ -125,10 +125,10 @@ const UniV3ManagedVaultActions = token => {
                       </>
                     )}
                   />
-                  <VaultRange color="red" data-tip="" data-for="univ3-vault-currentRange">
+                  <VaultRange color="#249669" data-tip="" data-for="univ3-vault-currentRange">
                     <b>{range.token1Symbol}</b>: {range.lowerBound} ~ {range.upperBound}{' '}
                     <b>{range.token0Symbol}</b>
-                    <FontAwesomeIcon icon={faCheckCircle} color="red" />
+                    <FontAwesomeIcon icon={faCheckCircle} color="#249669" />
                   </VaultRange>
                 </>
               )
