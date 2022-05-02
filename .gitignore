@@ -114,3 +114,8 @@ build/
 
 # Icons
 public/icons
+
+# CF
+workers-site
+wrangler.toml
+prod/

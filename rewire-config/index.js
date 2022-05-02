@@ -1,4 +1,9 @@
-const { addBabelPlugins, addWebpackPlugin, override } = require('customize-cra')
+const {
+  addBabelPlugins,
+  addWebpackPlugin,
+  override,
+  setWebpackOptimizationSplitChunks,
+} = require('customize-cra')
 const PrebuildPlugin = require('prebuild-webpack-plugin')
 const fs = require('fs-extra')
 const { tokens, pools } = require('../src/data')
@@ -47,6 +52,25 @@ const generateVaultsAndPoolsData = () => {
 }
 
 module.exports = override(
+  setWebpackOptimizationSplitChunks({
+    chunks: 'all',
+    minSize: 30000,
+    maxSize: 500000,
+    minChunks: 1,
+    maxAsyncRequests: 5,
+    maxInitialRequests: 3,
+    cacheGroups: {
+      vendors: {
+        test: /[\\/]node_modules[\\/]/,
+        priority: -10,
+      },
+      default: {
+        minChunks: 2,
+        priority: -20,
+        reuseExistingChunk: true,
+      },
+    },
+  }),
   ...addBabelPlugins([
     'babel-plugin-styled-components',
     {
