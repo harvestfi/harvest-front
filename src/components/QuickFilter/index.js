@@ -59,15 +59,27 @@ const QuickFilter = ({
   return (
     <QuickFilterContainer>
       <CategoriesContainer>
-        <Button
-          color={selectedCategory === null ? 'secondary' : 'info'}
-          size="sm"
-          fontWeight="500"
-          onClick={() => onCategoryClick(null)}
-          width="max-content"
-        >
-          All
-        </Button>
+        {chain !== CHAINS_ID.BSC_MAINNET ? (
+          <Button
+            color={selectedCategory === null ? 'secondary' : 'info'}
+            size="sm"
+            fontWeight="500"
+            onClick={() => onCategoryClick(null)}
+            width="max-content"
+          >
+            All
+          </Button>
+        ) : (
+          <Button
+            color={selectedCategory === 'All' ? 'secondary' : 'info'}
+            size="sm"
+            fontWeight="500"
+            onClick={() => onCategoryClick('All')}
+            width="max-content"
+          >
+            All
+          </Button>
+        )}
         {categories
           .filter(categoryId => categoryId !== inactiveCategoryId)
           .map((categoryId, i) => {
@@ -89,7 +101,11 @@ const QuickFilter = ({
           })}
         {hasInactiveVaults ? (
           <Button
-            color={selectedCategory === inactiveCategoryId ? 'secondary' : 'info'}
+            color={
+              selectedCategory === inactiveCategoryId || selectedCategory !== 'All'
+                ? 'secondary'
+                : 'info'
+            }
             size="sm"
             fontWeight="500"
             onClick={() => onCategoryClick(inactiveCategoryId)}

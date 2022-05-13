@@ -191,7 +191,7 @@ const formatVaults = (
       }
       return stringToArray(groupOfVaults[tokenSymbol].category).includes(selectedCategory)
     })
-  } else if (!depositedOnly) {
+  } else if (!depositedOnly && chain !== CHAINS_ID.BSC_MAINNET) {
     vaultsSymbol = vaultsSymbol.filter(
       tokenSymbol =>
         !groupOfVaults[tokenSymbol].inactive && !groupOfVaults[tokenSymbol].testInactive,
