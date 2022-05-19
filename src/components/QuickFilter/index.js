@@ -102,7 +102,8 @@ const QuickFilter = ({
         {hasInactiveVaults ? (
           <Button
             color={
-              selectedCategory === inactiveCategoryId || selectedCategory !== 'All'
+              selectedCategory === inactiveCategoryId ||
+              (selectedCategory !== 'All' && chain === CHAINS_ID.BSC_MAINNET)
                 ? 'secondary'
                 : 'info'
             }
