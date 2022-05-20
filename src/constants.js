@@ -42,6 +42,7 @@ export const ROUTES = {
   POOL: '/pool',
   FAQ: '/faq',
   ZAPPER: '/zapper',
+  ARBITRUM: 'https://harvest.dolomite.io/',
   VESTING: 'https://vest.harvest.finance/',
   WIKI: 'https://harvest-finance.gitbook.io/harvest-finance/',
   WIKI_ZH: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
