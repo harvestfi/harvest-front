@@ -35,6 +35,10 @@ const navLinks = [
     name: 'Farm',
   },
   {
+    path: ROUTES.ARBITRUM,
+    name: 'Arbitrum',
+  },
+  {
     path: ROUTES.AMPLIFARM,
     name: 'Booster',
   },
