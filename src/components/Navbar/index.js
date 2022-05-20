@@ -37,6 +37,7 @@ const navLinks = [
   {
     path: ROUTES.ARBITRUM,
     name: 'Arbitrum',
+    newTab: true,
   },
   {
     path: ROUTES.AMPLIFARM,
