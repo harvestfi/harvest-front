@@ -10,16 +10,21 @@ const VaultListHeader = ({ ...props }) => (
       chains={[
         {
           id: CHAINS_ID.ETH_MAINNET,
-          label: 'Ethereum Mainnet',
-        },
-        {
-          id: CHAINS_ID.BSC_MAINNET,
-          label: 'Binance Smart Chain',
+          label: 'Ethereum',
         },
         {
           id: CHAINS_ID.MATIC_MAINNET,
-          label: 'Polygon (Matic)',
+          label: 'Polygon',
+        },
+        {
+          id: 'ARBITRUM_MAINNET',
+          label: 'Arbitrum',
           isNew: true,
+          link: 'https://harvest.dolomite.io/',
+        },
+        {
+          id: CHAINS_ID.BSC_MAINNET,
+          label: 'BSC',
         },
       ]}
     />

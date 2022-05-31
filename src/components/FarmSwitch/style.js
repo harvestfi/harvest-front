@@ -41,4 +41,9 @@ const Chain = styled.div`
   }
 `
 
-export { Container, Chain }
+const ExternalLink = styled.div`
+  margin-left: 10px;
+  margin-top: 6px;
+`
+
+export { Container, Chain, ExternalLink }
