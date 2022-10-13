@@ -16,7 +16,7 @@ app.use(
 app.use(express.static(builtDirectory))
 app.get('*', (req, res) => res.sendFile(path.join(builtDirectory, 'index.html')))
 
-const httpsPort = process.env.HTTP_PORT || 443
+const httpsPort = process.env.HTTPS_PORT || 443
 const httpPort = process.env.HTTP_PORT || 80
 
 const server = https.createServer(
