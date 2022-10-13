@@ -16,6 +16,8 @@ A web application to make your hard work easier with [harvest.finance](https://h
 #### Environment variables
 | Var name | Example value | Description
 |--|--|--|
+| HTTP_PORT | 80 | The port on which to run the API w/o SSL
+| HTTPS_PORT | 443 | The port on which to run the API w/ SSL
 | REACT_APP_INFURA_KEY | 09112kdmslfasdasd | Infura key. Create a new for free
 | REACT_APP_MATIC_INFURA_KEY | djdfdnl1k231 | Infura key that also supports Polygon (Matic). Can be same as `REACT_APP_INFURA_KEY` if it supports Polygon (typically not free).
 | REACT_APP_EXTERNAL_API_KEY | 4daa-a552 | API key of api.harvest.finance (publicly available)
