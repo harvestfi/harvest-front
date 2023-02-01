@@ -61,7 +61,7 @@
     "web3modal": "file:./submodules/web3modal"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "node server.js",
     "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
