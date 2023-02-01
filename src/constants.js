@@ -60,9 +60,13 @@ export const POLL_POOL_DATA_INTERVAL_MS = window.ethereum ? 900000 : 36000000
 export const POLL_POOL_USER_DATA_INTERVAL_MS = 2000
 export const POLL_BOOST_USER_DATA_INTERVAL_MS = 5000
 
-export const INFURA_URL = process.env.REACT_APP_MAINNET_RPC_URL || `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`
+export const INFURA_URL =
+  process.env.REACT_APP_MAINNET_RPC_URL ||
+  `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`
 export const BSC_URL = 'https://bsc-dataseed2.defibit.io'
-export const MATIC_URL = provess.env.REACT_APP_MATIC_RPC_URL || `https://polygon-mainnet.infura.io/v3/${process.env.REACT_APP_MATIC_INFURA_KEY}`
+export const MATIC_URL =
+  process.env.REACT_APP_MATIC_RPC_URL ||
+  `https://polygon-mainnet.infura.io/v3/${process.env.REACT_APP_MATIC_INFURA_KEY}`
 
 export const ETHERSCAN_URL = 'https://etherscan.io'
 
