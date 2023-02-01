@@ -2,7 +2,7 @@ const express = require('express')
 const helmet = require('helmet')
 const path = require('path')
 
-const builtDirectory = path.join(__dirname, 'prod')
+const builtDirectory = path.join(__dirname, 'build')
 const PORT = process.env.PORT || '5000'
 const app = express()
 
