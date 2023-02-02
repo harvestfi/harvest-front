@@ -7,6 +7,7 @@ const builtDirectory = path.join(__dirname, 'build')
 const PORT = process.env.PORT || '5000'
 const app = express()
 
+app.disable('x-powered-by')
 app.use(
   helmet({
     crossOriginEmbedderPolicy: false,
