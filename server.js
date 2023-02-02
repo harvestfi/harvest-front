@@ -9,12 +9,15 @@ const app = express()
 
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      directives: {
-        frameAncestors: ['https://dapp-browser.apps.ledger.com'],
-      },
-    },
-    frameguard: false,
+    crossOriginEmbedderPolicy: false,
+    contentSecurityPolicy: false,
+    // contentSecurityPolicy: {
+    //   directives: {
+    //     frameAncestors: ['https://dapp-browser.apps.ledger.com'],
+    //     'script-src': ["'self'", 'data:', 'cdn.usefathom.com', "'unsafe-inline'"],
+    //   },
+    // },
+    // frameguard: false,
   }),
 )
 app.use(express.static(builtDirectory))
