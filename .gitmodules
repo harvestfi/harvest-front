@@ -1,3 +1,4 @@
 [submodule "src/data/harvest-api"]
 	path = src/data/harvest-api
 	url = https://github.com/harvestfi/harvest-api.git
+	branch = heroku-staging
