@@ -9,6 +9,7 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "1.0.0",
     "@coinbase/wallet-sdk": "3.0.5",
+    "@ledgerhq/connect-kit-loader": "1.0.2",
     "@fontsource/roboto-mono": "4.2.2",
     "@fortawesome/fontawesome-svg-core": "1.2.34",
     "@fortawesome/free-brands-svg-icons": "5.15.3",

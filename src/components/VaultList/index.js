@@ -289,13 +289,14 @@ const VaultList = ({ profitShareAPY }) => {
       },
       [FARMSTEAD_USDC_TOKEN_SYMBOL]: {
         poolVault: true,
+        inactive: true,
         displayName: 'FARMStead USDC-24',
         subLabel: 'fUSDC-24',
         data: farmSteadUSDCPool,
         logoUrl: './icons/farmstead-usdc.png',
         rewardSymbol: IFARM_TOKEN_SYMBOL,
         isNew: tokens[FARMSTEAD_USDC_TOKEN_SYMBOL].isNew,
-        category: VAULT_CATEGORIES_IDS.GENERAL,
+        category: VAULT_CATEGORIES_IDS.INACTIVE,
       },
       [FARM_GRAIN_TOKEN_SYMBOL]: {
         liquidityPoolVault: true,
