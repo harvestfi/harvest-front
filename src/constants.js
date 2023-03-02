@@ -68,7 +68,9 @@ export const MATIC_URL =
   process.env.REACT_APP_MATIC_RPC_URL ||
   `https://polygon-mainnet.infura.io/v3/${process.env.REACT_APP_MATIC_INFURA_KEY}`
 
-export const ARBITRUM_URL = `https://arbitrum-mainnet.infura.io/v3/${process.env.REACT_APP_ARBITRUM_INFURA_KEY}`
+export const ARBITRUM_URL =
+  process.env.REACT_APP_ARBITRUM_RPC_URL ||
+  `https://arbitrum-mainnet.infura.io/v3/${process.env.REACT_APP_ARBITRUM_INFURA_KEY}`
 
 export const ETHERSCAN_URL = 'https://etherscan.io'
 
