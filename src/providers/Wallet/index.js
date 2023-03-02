@@ -1,20 +1,20 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
-import { toast } from 'react-toastify'
 import { get, isArray, isUndefined, toString } from 'lodash'
-import { validateAccount, validateChain } from './utils'
-import { useContracts } from '../Contracts'
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import { FARM_TOKEN_SYMBOL, IFARM_TOKEN_SYMBOL } from '../../constants'
+import { CHAINS_ID } from '../../data/constants'
 import {
   connectWeb3,
   getAccount,
+  getChainHexadecimal,
   getChainName,
   hasValidUpdatedBalance,
-  pollUpdatedBalance,
-  mainWeb3,
   isMobileWeb3,
-  getChainHexadecimal,
+  mainWeb3,
+  pollUpdatedBalance,
 } from '../../services/web3'
-import { FARM_TOKEN_SYMBOL, IFARM_TOKEN_SYMBOL } from '../../constants'
-import { CHAINS_ID } from '../../data/constants'
+import { useContracts } from '../Contracts'
+import { validateAccount, validateChain } from './utils'
 
 const { tokens } = require('../../data')
 
@@ -63,6 +63,20 @@ const getChainAddParams = chainId => {
           },
           rpcUrls: ['https://rpc-mainnet.maticvigil.com/'],
           blockExplorerUrls: ['https://polygonscan.com/'],
+        },
+      ]
+    case CHAINS_ID.ARBITRUM_ONE:
+      return [
+        {
+          chainId: getChainHexadecimal(CHAINS_ID.ARBITRUM_ONE),
+          chainName: 'Arbitrum One',
+          nativeCurrency: {
+            name: 'ETH',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          rpcUrls: ['https://arb1.arbitrum.io/rpc'],
+          blockExplorerUrls: ['https://arbiscan.io/'],
         },
       ]
     default:
