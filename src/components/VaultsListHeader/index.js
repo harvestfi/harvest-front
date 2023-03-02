@@ -1,8 +1,8 @@
 import React from 'react'
-import { HeaderContainer } from './style'
+import { CHAINS_ID } from '../../data/constants'
 import FarmSwitch from '../FarmSwitch'
 import QuickFilter from '../QuickFilter'
-import { CHAINS_ID } from '../../data/constants'
+import { HeaderContainer } from './style'
 
 const VaultListHeader = ({ ...props }) => (
   <HeaderContainer>
@@ -17,10 +17,9 @@ const VaultListHeader = ({ ...props }) => (
           label: 'Polygon',
         },
         {
-          id: 'ARBITRUM_MAINNET',
+          id: CHAINS_ID.ARBITRUM_ONE,
           label: 'Arbitrum',
           isNew: true,
-          link: 'https://harvest.dolomite.io/',
         },
         {
           id: CHAINS_ID.BSC_MAINNET,

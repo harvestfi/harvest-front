@@ -1,12 +1,13 @@
+import BigNumber from 'bignumber.js'
 import equal from 'fast-deep-equal/react'
 import { get } from 'lodash'
 import { forEach } from 'promised-loops'
-import BigNumber from 'bignumber.js'
+import { POLL_POOL_USER_DATA_INTERVAL_MS } from '../../constants'
+import { CHAINS_ID } from '../../data/constants'
+import { newContractInstance } from '../../services/web3'
+import poolMethods from '../../services/web3/contracts/pool/methods'
 import tokenContract from '../../services/web3/contracts/token/contract.json'
 import tokenMethods from '../../services/web3/contracts/token/methods'
-import poolMethods from '../../services/web3/contracts/pool/methods'
-import { newContractInstance } from '../../services/web3'
-import { POLL_POOL_USER_DATA_INTERVAL_MS } from '../../constants'
 
 const { pools, tokens } = require('../../data')
 
@@ -34,13 +35,21 @@ export const calculateRewardsEarned = async (rewardAddress, account, contractIns
   return totalEarned
 }
 
-export const getTotalStaked = async (account, contractInstance) => {
-  const { balanceOf } = poolMethods
+export const getTotalStaked = async (account, contractInstance, chainId) => {
+  if (chainId === CHAINS_ID.ARBITRUM_ONE) {
+    const { stakedBalanceOf } = poolMethods
 
-  if (account) {
-    const fetchedBalance = await balanceOf(account, contractInstance)
+    if (account) {
+      return stakedBalanceOf(account, contractInstance)
+    }
+  } else {
+    const { balanceOf } = poolMethods
 
-    return fetchedBalance
+    if (account) {
+      const fetchedBalance = await balanceOf(account, contractInstance)
+
+      return fetchedBalance
+    }
   }
 
   return '0'
@@ -81,7 +90,17 @@ export const getUserStats = async (
   const rewardsEarned = {}
 
   if (account) {
-    totalStaked = await getTotalStaked(account, autoStakeContractInstance || poolContractInstance)
+    const chainId = get(
+      pools.find(pool => pool.contractAddress === poolContractAddress),
+      'chain',
+      [],
+    )
+
+    totalStaked = await getTotalStaked(
+      account,
+      autoStakeContractInstance || poolContractInstance,
+      chainId,
+    )
 
     const rewardTokenSymbols = get(
       pools.find(pool => pool.contractAddress === poolContractAddress),
@@ -94,7 +113,6 @@ export const getUserStats = async (
       'rewardTokens',
       [],
     )
-
     if (rewardTokenSymbols.length > 1) {
       totalRewardsEarned = new BigNumber(0)
 

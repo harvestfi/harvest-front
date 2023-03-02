@@ -1,22 +1,22 @@
 import React from 'react'
-import defiPulseLogo from './assets/images/logos/defi-pulse.png'
-import deBankLogo from './assets/images/logos/debank.svg'
-import defiPrimeLogo from './assets/images/logos/defiprime.png'
-import zapperFiLogo from './assets/images/logos/zapperfi.png'
+import certikLogo from './assets/images/logos/certik.png'
 import coingeckoLogo from './assets/images/logos/coingecko.png'
+import deBankLogo from './assets/images/logos/debank.svg'
+import defiPulseLogo from './assets/images/logos/defi-pulse.png'
+import defiPrimeLogo from './assets/images/logos/defiprime.png'
+import haechiLogo from './assets/images/logos/haechi.png'
+import leastAuthorityLogo from './assets/images/logos/least-authority.png'
 import okLinkLogo from './assets/images/logos/oklink.png'
 import peckshieldLogo from './assets/images/logos/peckshield.png'
-import haechiLogo from './assets/images/logos/haechi.png'
-import certikLogo from './assets/images/logos/certik.png'
-import leastAuthorityLogo from './assets/images/logos/least-authority.png'
+import zapperFiLogo from './assets/images/logos/zapperfi.png'
 
+import artisanIcon from './assets/images/work/artisan.svg'
 import builderIcon from './assets/images/work/builder.svg'
+import craftsmanIcon from './assets/images/work/craftsman.svg'
+import cultivatorIcon from './assets/images/work/cultivator.svg'
+import gardenerIcon from './assets/images/work/gardener.svg'
 import rangerIcon from './assets/images/work/ranger.svg'
 import yeomanIcon from './assets/images/work/yeoman.svg'
-import artisanIcon from './assets/images/work/artisan.svg'
-import craftsmanIcon from './assets/images/work/craftsman.svg'
-import gardenerIcon from './assets/images/work/gardener.svg'
-import cultivatorIcon from './assets/images/work/cultivator.svg'
 import { addresses } from './data'
 
 export const HARVEST_LAUNCH_DATE = new Date(1598986800000)
@@ -68,11 +68,17 @@ export const MATIC_URL =
   process.env.REACT_APP_MATIC_RPC_URL ||
   `https://polygon-mainnet.infura.io/v3/${process.env.REACT_APP_MATIC_INFURA_KEY}`
 
+export const ARBITRUM_URL =
+  process.env.REACT_APP_ARBITRUM_RPC_URL ||
+  `https://arbitrum-mainnet.infura.io/v3/${process.env.REACT_APP_ARBITRUM_INFURA_KEY}`
+
 export const ETHERSCAN_URL = 'https://etherscan.io'
 
 export const BSCSCAN_URL = 'https://bscscan.com'
 
 export const MATICSCAN_URL = 'https://polygonscan.com'
+
+export const ARBISCAN_URL = 'https://arbiscan.io'
 
 export const DECIMAL_PRECISION = 2
 
