@@ -260,6 +260,7 @@ export const getChainName = chainId => {
     case Number(CHAINS_ID.MATIC_MAINNET):
     case getChainHexadecimal(CHAINS_ID.MATIC_MAINNET):
       return 'Polygon (Matic)'
+    case Number(CHAINS_ID.ARBITRUM_ONE):
     case getChainHexadecimal(CHAINS_ID.ARBITRUM_ONE):
       return 'Arbitrum One'
     default:
