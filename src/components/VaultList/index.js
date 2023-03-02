@@ -1,35 +1,35 @@
-import React, { useMemo, useRef, useState } from 'react'
+import BigNumber from 'bignumber.js'
 import { find, get, isArray, isEqual, keys, orderBy, sortBy, uniq } from 'lodash'
 import move from 'lodash-move'
-import useEffectWithPrevious from 'use-effect-with-previous'
+import React, { useMemo, useRef, useState } from 'react'
 import ReactTooltip from 'react-tooltip'
-import BigNumber from 'bignumber.js'
-import { useVaults } from '../../providers/Vault'
-import {
-  FARM_TOKEN_SYMBOL,
-  FARM_USDC_TOKEN_SYMBOL,
-  FARM_WETH_TOKEN_SYMBOL,
-  FARM_GRAIN_TOKEN_SYMBOL,
-  FARMSTEAD_USDC_TOKEN_SYMBOL,
-  IFARM_TOKEN_SYMBOL,
-  SPECIAL_VAULTS,
-} from '../../constants'
-import { usePools } from '../../providers/Pools'
-import { useWallet } from '../../providers/Wallet'
-import { Container, Header, HeaderCol } from './style'
-import VaultPanel from '../VaultPanel'
-import {
-  convertAmountToFARM,
-  stringToArray,
-  getTotalApy,
-  getUserVaultBalance,
-  getVaultValue,
-} from '../../utils'
-import VaultListHeader from '../VaultsListHeader'
+import useEffectWithPrevious from 'use-effect-with-previous'
 import sortAscIcon from '../../assets/images/ui/asc.svg'
 import sortDescIcon from '../../assets/images/ui/desc.svg'
 import sortIcon from '../../assets/images/ui/sort.svg'
+import {
+  FARMSTEAD_USDC_TOKEN_SYMBOL,
+  FARM_GRAIN_TOKEN_SYMBOL,
+  FARM_TOKEN_SYMBOL,
+  FARM_USDC_TOKEN_SYMBOL,
+  FARM_WETH_TOKEN_SYMBOL,
+  IFARM_TOKEN_SYMBOL,
+  SPECIAL_VAULTS,
+} from '../../constants'
 import { CHAINS_ID, VAULT_CATEGORIES_IDS } from '../../data/constants'
+import { usePools } from '../../providers/Pools'
+import { useVaults } from '../../providers/Vault'
+import { useWallet } from '../../providers/Wallet'
+import {
+  convertAmountToFARM,
+  getTotalApy,
+  getUserVaultBalance,
+  getVaultValue,
+  stringToArray,
+} from '../../utils'
+import VaultPanel from '../VaultPanel'
+import VaultListHeader from '../VaultsListHeader'
+import { Container, Header, HeaderCol } from './style'
 
 const { tokens } = require('../../data')
 
@@ -181,6 +181,7 @@ const formatVaults = (
         selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE ||
         selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE_BSC ||
         selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE_POLYGON ||
+        selectedCategory === VAULT_CATEGORIES_IDS.INACTIVE_ARBITRUM ||
         depositedOnly
       ) {
         return (
@@ -289,14 +290,13 @@ const VaultList = ({ profitShareAPY }) => {
       },
       [FARMSTEAD_USDC_TOKEN_SYMBOL]: {
         poolVault: true,
-        inactive: true,
         displayName: 'FARMStead USDC-24',
         subLabel: 'fUSDC-24',
         data: farmSteadUSDCPool,
         logoUrl: './icons/farmstead-usdc.png',
         rewardSymbol: IFARM_TOKEN_SYMBOL,
         isNew: tokens[FARMSTEAD_USDC_TOKEN_SYMBOL].isNew,
-        category: VAULT_CATEGORIES_IDS.INACTIVE,
+        category: VAULT_CATEGORIES_IDS.GENERAL,
       },
       [FARM_GRAIN_TOKEN_SYMBOL]: {
         liquidityPoolVault: true,

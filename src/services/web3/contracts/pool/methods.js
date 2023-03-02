@@ -2,6 +2,9 @@ import { handleWeb3ReadMethod } from '../..'
 
 const balanceOf = (address, instance) => handleWeb3ReadMethod('balanceOf', [address], instance)
 
+const stakedBalanceOf = (address, instance) =>
+  handleWeb3ReadMethod('stakedBalanceOf', [address], instance)
+
 const periodFinish = instance => handleWeb3ReadMethod('periodFinish', [], instance)
 
 const rewardPerToken = instance => handleWeb3ReadMethod('rewardPerToken', [], instance)
@@ -32,6 +35,7 @@ const withdraw = (address, amount, instance) =>
 
 export default {
   balanceOf,
+  stakedBalanceOf,
   periodFinish,
   rewardPerToken,
   rewardRate,

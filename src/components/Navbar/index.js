@@ -35,6 +35,15 @@ const navLinks = [
     name: 'Farm',
   },
   {
+    path: ROUTES.ARBITRUM,
+    name: 'Arbitrum',
+    newTab: true,
+  },
+  {
+    path: ROUTES.AMPLIFARM,
+    name: 'Booster',
+  },
+  {
     path: ROUTES.STATS,
     name: 'Stats',
     newTab: true,
@@ -52,7 +61,6 @@ const navLinks = [
     path: '#',
     name: 'Help',
     subItems: [
-      { path: ROUTES.AMPLIFARM, name: 'Booster' },
       { path: ROUTES.FAQ, name: 'FAQ' },
       { path: ROUTES.WIKI, newTab: true, name: 'Docs' },
       { path: ROUTES.WIKI_ZH, newTab: true, name: '策略' },

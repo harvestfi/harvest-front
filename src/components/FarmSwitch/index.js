@@ -1,13 +1,13 @@
 import React from 'react'
-import { Container, Chain, ExternalLink } from './style'
-import { useWallet } from '../../providers/Wallet'
-import { NewBadgeLabel } from '../GlobalStyle'
-import ethLogo from '../../assets/images/logos/eth.svg'
-import bscLogo from '../../assets/images/logos/bsc.svg'
-import maticLogo from '../../assets/images/logos/matic.svg'
 import arbitrumLogo from '../../assets/images/logos/arbitrum.svg'
+import bscLogo from '../../assets/images/logos/bsc.svg'
+import ethLogo from '../../assets/images/logos/eth.svg'
+import maticLogo from '../../assets/images/logos/matic.svg'
 import externalLink from '../../assets/images/ui/external-link.png'
 import { CHAINS_ID } from '../../data/constants'
+import { useWallet } from '../../providers/Wallet'
+import { NewBadgeLabel } from '../GlobalStyle'
+import { Chain, Container, ExternalLink } from './style'
 
 const ChainImage = ({ id, label }) => {
   switch (id) {
@@ -17,7 +17,7 @@ const ChainImage = ({ id, label }) => {
       return <img src={bscLogo} alt={label} />
     case CHAINS_ID.MATIC_MAINNET:
       return <img src={maticLogo} alt={label} />
-    case 'ARBITRUM_MAINNET':
+    case CHAINS_ID.ARBITRUM_ONE:
       return <img src={arbitrumLogo} alt={label} />
     default:
       return null
