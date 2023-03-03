@@ -20,6 +20,8 @@ const getInactiveCategoryIdByChain = chain => {
       return VAULT_CATEGORIES_IDS.INACTIVE
     case CHAINS_ID.BSC_MAINNET:
       return VAULT_CATEGORIES_IDS.INACTIVE_BSC
+    case CHAINS_ID.ARBITRUM_ONE:
+      return VAULT_CATEGORIES_IDS.INACTIVE_ARBITRUM
     default:
       return undefined
   }
