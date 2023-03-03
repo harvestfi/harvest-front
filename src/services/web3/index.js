@@ -18,11 +18,14 @@ import {
   isDebugMode,
   MATIC_URL,
   MATICSCAN_URL,
+  ARBITRUM_URL,
+  ARBISCAN_URL,
 } from '../../constants'
 import ethLogo from '../../assets/images/logos/eth.png'
 import bscLogo from '../../assets/images/logos/bsc.png'
 import bswLogo from '../../assets/images/logos/bsw.png'
 import maticLogo from '../../assets/images/logos/matic.svg'
+import arbitrumLogo from '../../assets/images/logos/arbitrum.svg'
 import { CHAINS_ID } from '../../data/constants'
 
 const providerOptions = {
@@ -37,6 +40,7 @@ const providerOptions = {
         [CHAINS_ID.ETH_MAINNET]: INFURA_URL,
         [CHAINS_ID.BSC_MAINNET]: BSC_URL,
         [CHAINS_ID.MATIC_MAINNET]: MATIC_URL,
+        [CHAINS_ID.ARBITRUM_ONE]: ARBITRUM_URL,
       },
     },
   },
@@ -45,7 +49,10 @@ const providerOptions = {
     options: {
       infuraId: process.env.REACT_APP_INFURA_KEY,
       rpc: {
+        [CHAINS_ID.ETH_MAINNET]: INFURA_URL,
         [CHAINS_ID.BSC_MAINNET]: BSC_URL,
+        [CHAINS_ID.MATIC_MAINNET]: MATIC_URL,
+        [CHAINS_ID.ARBITRUM_ONE]: ARBITRUM_URL,
       },
     },
   },
@@ -61,6 +68,7 @@ const providerOptions = {
         Number(CHAINS_ID.ETH_MAINNET),
         Number(CHAINS_ID.BSC_MAINNET),
         Number(CHAINS_ID.MATIC_MAINNET),
+        Number(CHAINS_ID.ARBITRUM_ONE),
       ],
     },
     connector: async (ProviderPackage, options) => {
@@ -76,6 +84,7 @@ const providerOptions = {
         [CHAINS_ID.ETH_MAINNET]: INFURA_URL,
         [CHAINS_ID.BSC_MAINNET]: BSC_URL,
         [CHAINS_ID.MATIC_MAINNET]: MATIC_URL,
+        [CHAINS_ID.ARBITRUM_ONE]: ARBITRUM_URL,
       },
     },
   },
@@ -94,6 +103,10 @@ const chains = {
     name: 'Polygon (Matic)',
     logo: maticLogo,
   },
+  [CHAINS_ID.ARBITRUM_ONE]: {
+    name: 'Arbitrum',
+    logo: arbitrumLogo,
+  },
 }
 
 export const getChainHexadecimal = chainId => `0x${Number(chainId).toString(16)}`
@@ -110,6 +123,7 @@ export const mainWeb3 = new Web3(window.ethereum || INFURA_URL)
 export const infuraWeb3 = new Web3(INFURA_URL)
 export const bscWeb3 = new Web3(BSC_URL)
 export const maticWeb3 = new Web3(MATIC_URL)
+export const arbitrumWeb3 = new Web3(ARBITRUM_URL)
 
 export const connectWeb3 = async () => {
   const loadedAsSafeApp = await web3Modal.isSafeApp()
@@ -246,6 +260,9 @@ export const getChainName = chainId => {
     case Number(CHAINS_ID.MATIC_MAINNET):
     case getChainHexadecimal(CHAINS_ID.MATIC_MAINNET):
       return 'Polygon (Matic)'
+    case Number(CHAINS_ID.ARBITRUM_ONE):
+    case getChainHexadecimal(CHAINS_ID.ARBITRUM_ONE):
+      return 'Arbitrum One'
     default:
       return `Unknown(${chainId})`
   }
@@ -264,6 +281,10 @@ export const getWeb3 = (chainId, account) => {
     return maticWeb3
   }
 
+  if (chainId === CHAINS_ID.ARBITRUM_ONE) {
+    return arbitrumWeb3
+  }
+
   return infuraWeb3
 }
 
@@ -273,6 +294,8 @@ export const getExplorerLink = chainId => {
       return MATICSCAN_URL
     case CHAINS_ID.BSC_MAINNET:
       return BSCSCAN_URL
+    case CHAINS_ID.ARBITRUM_ONE:
+      return ARBISCAN_URL
     default:
       return ETHERSCAN_URL
   }
@@ -283,10 +306,10 @@ export const isMobileWeb3 = get(window, 'ethereum') && mobile()
 export const handleWeb3ReadMethod = (methodName, params, instance) => {
   if (isDebugMode) {
     console.debug(`
-Provider: ${get(instance, 'currentProvider.host') ? 'Infura/HttpProvider' : 'Injected web3'}
-Contract address: ${get(instance, '_address')}
-Method: ${methodName}
-Params: ${params}
+      Provider: ${get(instance, 'currentProvider.host') ? 'Infura/HttpProvider' : 'Injected web3'}
+      Contract address: ${get(instance, '_address')}
+      Method: ${methodName}
+      Params: ${params}
     `)
   }
 

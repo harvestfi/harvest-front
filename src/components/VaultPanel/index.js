@@ -1,14 +1,9 @@
-import React, { useEffect, useState, useMemo, useRef, useCallback } from 'react'
 import BigNumber from 'bignumber.js'
 import { find, get, isArray, isEmpty, sumBy } from 'lodash'
-import useDeepCompareEffect from 'use-deep-compare-effect'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Collapsible from 'react-collapsible'
 import ReactTooltip from 'react-tooltip'
-import { usePools } from '../../providers/Pools'
-import { useVaults } from '../../providers/Vault'
-import { useWallet } from '../../providers/Wallet'
-import { fromWei, newContractInstance, toWei } from '../../services/web3'
-import { InputControl, FormGroup, VaultContainer, VaultBody, MigrationLabel } from './style'
+import useDeepCompareEffect from 'use-deep-compare-effect'
 import {
   DISABLED_DEPOSITS,
   FARM_TOKEN_SYMBOL,
@@ -19,23 +14,28 @@ import {
   SPECIAL_VAULTS,
   UNIV3_POOL_ID_REGEX,
 } from '../../constants'
-import NumberInput from '../NumberInput'
-import VaultPanelHeader from '../VaultPanelHeader'
-import {
-  hasValidAmountForInputAndMaxButton,
-  hasAmountGreaterThanZero,
-  hasRequirementsForInteraction,
-  truncateNumberString,
-  formatNumber,
-  hasAmountLessThanOrEqualTo,
-} from '../../utils'
-import VaultPanelActions from '../VaultPanelActions'
-import WithdrawInputTooltip from '../WithdrawInputTooltip'
+import { CHAINS_ID } from '../../data/constants'
+import { usePools } from '../../providers/Pools'
+import { useVaults } from '../../providers/Vault'
+import { useWallet } from '../../providers/Wallet'
+import { fromWei, newContractInstance, toWei } from '../../services/web3'
+import tokenContractData from '../../services/web3/contracts/token/contract.json'
+import tokenContractMethods from '../../services/web3/contracts/token/methods'
 import uniStatusViewerContractData from '../../services/web3/contracts/unistatus-viewer/contract.json'
 import uniStatusViewerContractMethods from '../../services/web3/contracts/unistatus-viewer/methods'
-import tokenContractMethods from '../../services/web3/contracts/token/methods'
-import tokenContractData from '../../services/web3/contracts/token/contract.json'
-import { CHAINS_ID } from '../../data/constants'
+import {
+  formatNumber,
+  hasAmountGreaterThanZero,
+  hasAmountLessThanOrEqualTo,
+  hasRequirementsForInteraction,
+  hasValidAmountForInputAndMaxButton,
+  truncateNumberString,
+} from '../../utils'
+import NumberInput from '../NumberInput'
+import VaultPanelActions from '../VaultPanelActions'
+import VaultPanelHeader from '../VaultPanelHeader'
+import WithdrawInputTooltip from '../WithdrawInputTooltip'
+import { FormGroup, InputControl, MigrationLabel, VaultBody, VaultContainer } from './style'
 
 const { tokens } = require('../../data')
 

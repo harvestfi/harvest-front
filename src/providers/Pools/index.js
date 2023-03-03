@@ -1,22 +1,22 @@
-import React, { useCallback, createContext, useContext, useState, useMemo, useRef } from 'react'
+import axios from 'axios'
+import isEqual from 'fast-deep-equal/react'
+import { filter, get, map, sumBy } from 'lodash'
+import { forEach } from 'promised-loops'
+import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react'
 // eslint-disable-next-line import/no-unresolved
 import { useInterval } from 'react-interval-hook'
-import isEqual from 'fast-deep-equal/react'
-import axios from 'axios'
-import { filter, get, map, sumBy } from 'lodash'
-import useEffectWithPrevious from 'use-effect-with-previous'
 import { toast } from 'react-toastify'
-import { forEach } from 'promised-loops'
-import { getLpTokenData, getUserStats, pollUpdatedUserStats } from './utils'
+import useEffectWithPrevious from 'use-effect-with-previous'
 import { POLL_POOL_DATA_INTERVAL_MS, POOLS_API_ENDPOINT, SPECIAL_VAULTS } from '../../constants'
-import { truncateNumberString } from '../../utils'
-import { newContractInstance, getWeb3 } from '../../services/web3'
+import { CHAINS_ID } from '../../data/constants'
+import { getWeb3, newContractInstance } from '../../services/web3'
+import poolContractData from '../../services/web3/contracts/pool/contract.json'
 import tokenContract from '../../services/web3/contracts/token/contract.json'
 import tokenMethods from '../../services/web3/contracts/token/methods'
-import poolContractData from '../../services/web3/contracts/pool/contract.json'
-import { useWallet } from '../Wallet'
+import { truncateNumberString } from '../../utils'
 import { useContracts } from '../Contracts'
-import { CHAINS_ID } from '../../data/constants'
+import { useWallet } from '../Wallet'
+import { getLpTokenData, getUserStats, pollUpdatedUserStats } from './utils'
 
 const { pools: defaultPools, tokens } = require('../../data')
 
@@ -29,6 +29,8 @@ const getReader = (selectedChain, contracts) => {
       return contracts.readerBsc
     case CHAINS_ID.MATIC_MAINNET:
       return contracts.readerMatic
+    case CHAINS_ID.ARBITRUM_ONE:
+      return contracts.readerArbitrum
     default:
       return contracts.readerEth
   }
@@ -144,7 +146,12 @@ const PoolsProvider = _ref => {
     try {
       const apiResponse = await axios.get(POOLS_API_ENDPOINT)
       const apiData = get(apiResponse, 'data')
-      newPools = await formatPoolsData([...apiData.bsc, ...apiData.eth, ...apiData.matic])
+      newPools = await formatPoolsData([
+        ...apiData.bsc,
+        ...apiData.eth,
+        ...apiData.matic,
+        ...apiData.arbitrum,
+      ])
     } catch (err) {
       console.error(err)
 

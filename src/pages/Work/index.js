@@ -102,14 +102,9 @@ const Work = () => {
             <li>
               Community-run front-end tools, such as the{' '}
               <a href="https://farmdashboard.xyz/" target="_blank" rel="noopener noreferrer">
-                Stats Dashboard
-              </a>{' '}
-              and the{' '}
-              <a href="https://harvest-dashboard.xyz/" target="_blank" rel="noopener noreferrer">
-                Harvest Dashboard.
+                Stats Dashboard.
               </a>{' '}
             </li>
-            <li> Work on the new BSC smart contracts and farms.</li>
             <li>
               {' '}
               Development of new farming strategies in the new{' '}

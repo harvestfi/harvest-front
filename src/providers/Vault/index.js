@@ -1,32 +1,32 @@
+import axios from 'axios'
+import BigNumber from 'bignumber.js'
+import { get, isArray, merge, pickBy } from 'lodash'
+import { forEach } from 'promised-loops'
 import React, {
   createContext,
-  useContext,
-  useState,
   useCallback,
+  useContext,
   useEffect,
-  useRef,
   useMemo,
+  useRef,
+  useState,
 } from 'react'
-import BigNumber from 'bignumber.js'
-import { forEach } from 'promised-loops'
-import axios from 'axios'
-import { get, pickBy, merge, isArray } from 'lodash'
 import { toast } from 'react-toastify'
 import useEffectWithPrevious from 'use-effect-with-previous'
-import { calculateFarmingBalance, filterVaults } from './utils'
 import { IFARM_TOKEN_SYMBOL, VAULTS_API_ENDPOINT } from '../../constants'
-import { useWallet } from '../Wallet'
-import { usePools } from '../Pools'
-import vaultContractData from '../../services/web3/contracts/vault/contract.json'
-import vaultMethods from '../../services/web3/contracts/vault/methods'
-import univ3ContractData from '../../services/web3/contracts/uniswap-v3/contract.json'
 import {
   getWeb3,
   hasValidUpdatedBalance,
   newContractInstance,
   pollUpdatedBalance,
 } from '../../services/web3'
+import univ3ContractData from '../../services/web3/contracts/uniswap-v3/contract.json'
+import vaultContractData from '../../services/web3/contracts/vault/contract.json'
+import vaultMethods from '../../services/web3/contracts/vault/methods'
 import { abbreaviteNumber } from '../../utils'
+import { usePools } from '../Pools'
+import { useWallet } from '../Wallet'
+import { calculateFarmingBalance, filterVaults } from './utils'
 
 const { tokens, addresses } = require('../../data')
 
@@ -213,7 +213,7 @@ const VaultsProvider = _ref => {
       try {
         const apiResponse = await axios.get(VAULTS_API_ENDPOINT)
         const apiData = get(apiResponse, 'data')
-        await setFormattedVaults(merge(apiData.bsc, apiData.eth, apiData.matic))
+        await setFormattedVaults(merge(apiData.bsc, apiData.eth, apiData.matic, apiData.arbitrum))
         setLoadingVaults(false)
       } catch (err) {
         console.log(err)
