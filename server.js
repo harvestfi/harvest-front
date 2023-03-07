@@ -2,7 +2,6 @@ require('dotenv').config()
 const express = require('express')
 const helmet = require('helmet')
 const path = require('path')
-const { INFURA_URL, BSC_URL, MATIC_URL, ARBITRUM_URL, HARVEST_API_URL } = require('./src/constants')
 
 const builtDirectory = path.join(__dirname, 'build')
 const PORT = process.env.PORT || '5000'
@@ -17,7 +16,7 @@ app.use(
       directives: {
         frameAncestors: ['https://dapp-browser.apps.ledger.com/'],
         scriptSrc: ["'self'", "'unsafe-inline'"],
-        connectSrc: ["'self'", INFURA_URL, BSC_URL, MATIC_URL, ARBITRUM_URL, HARVEST_API_URL]
+        connectSrc: ["'self'", "*"]
       },
     },
     frameguard: false,
