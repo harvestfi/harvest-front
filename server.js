@@ -15,7 +15,7 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         frameAncestors: ['https://dapp-browser.apps.ledger.com/'],
-        'script-src': ["'self'", 'data:', 'cdn.usefathom.com', "'unsafe-inline'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"],
       },
     },
     frameguard: false,
