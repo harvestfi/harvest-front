@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const helmet = require('helmet')
 const path = require('path')
-import { INFURA_URL, BSC_URL, MATIC_URL, ARBITRUM_URL, HARVEST_API_URL } from './src/constants'
+const { INFURA_URL, BSC_URL, MATIC_URL, ARBITRUM_URL, HARVEST_API_URL } = require('./src/constants')
 
 const builtDirectory = path.join(__dirname, 'build')
 const PORT = process.env.PORT || '5000'
