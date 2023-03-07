@@ -11,14 +11,13 @@ app.disable('x-powered-by')
 app.use(
   helmet({
     crossOriginEmbedderPolicy: false,
-    contentSecurityPolicy: false,
-    // contentSecurityPolicy: {
-    //   directives: {
-    //     frameAncestors: ['https://dapp-browser.apps.ledger.com'],
-    //     'script-src': ["'self'", 'data:', 'cdn.usefathom.com', "'unsafe-inline'"],
-    //   },
-    // },
-    // frameguard: false,
+    // contentSecurityPolicy: false,
+    contentSecurityPolicy: {
+      directives: {
+        frameAncestors: ['https://dapp-browser.apps.ledger.com/'],
+      },
+    },
+    frameguard: false,
   }),
 )
 app.use(express.static(builtDirectory))
