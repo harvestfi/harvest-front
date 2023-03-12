@@ -16,7 +16,7 @@ app.use(
       directives: {
         frameAncestors: ['https://dapp-browser.apps.ledger.com/'],
         scriptSrc: ["'self'", "'unsafe-inline'"],
-        connectSrc: ["'self'", "*"]
+        connectSrc: ["'self'", '*'],
       },
     },
     frameguard: false,
