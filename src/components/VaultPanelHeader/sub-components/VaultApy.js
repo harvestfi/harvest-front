@@ -17,6 +17,11 @@ const FARMIcon = ({ token, vaultPool, farmAPY }) => {
 
   switch (true) {
     case vaultPool.rewardTokens.includes(addresses.iFARM):
+    case vaultPool.rewardTokens.includes(addresses.ARBITRUM_ONE.iFARM):
+      return (token.hideiFarmSymbol || new BigNumber(farmAPY).lte(0)) &&
+        vaultPool.dataFetched ? null : (
+        <SmallLogo margin="0px 5px 0px 0px" src="./icons/ifarm.png" />
+      )
     case vaultPool.rewardTokens.includes(addresses.MATIC.miFARM):
       return (token.hideiFarmSymbol || new BigNumber(farmAPY).lte(0)) &&
         vaultPool.dataFetched ? null : (
