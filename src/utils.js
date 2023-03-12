@@ -355,7 +355,9 @@ export const getRewardsText = (
     return ReactHtmlParser(tooltipText)
   }
 
-  const isIFARM = vaultPool.rewardTokens[0] === addresses.iFARM
+  const isIFARM =
+    vaultPool.rewardTokens[0] === addresses.iFARM ||
+    vaultPool.rewardTokens[0] === addresses.ARBITRUM_ONE.iFARM
   const isAmpliFARM = get(vaultPool, 'rewardTokens').includes(addresses.BSC.ampliFARM)
   const isHodlVault =
     stringToArray(token.category).includes(VAULT_CATEGORIES_IDS.SUSHI_HODL) || token.hodlVaultId
