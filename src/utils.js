@@ -355,7 +355,9 @@ export const getRewardsText = (
     return ReactHtmlParser(tooltipText)
   }
 
-  const isIFARM = vaultPool.rewardTokens[0] === addresses.iFARM
+  const isIFARM =
+    vaultPool.rewardTokens[0] === addresses.iFARM ||
+    vaultPool.rewardTokens[0] === addresses.ARBITRUM_ONE.iFARM
   const isAmpliFARM = get(vaultPool, 'rewardTokens').includes(addresses.BSC.ampliFARM)
   const isHodlVault =
     stringToArray(token.category).includes(VAULT_CATEGORIES_IDS.SUSHI_HODL) || token.hodlVaultId
@@ -448,13 +450,13 @@ export const getRewardsText = (
 
     if (!token.hideFarmApy && Number(farmAPY) > 0) {
       let apyString = `<b>${
-        isIFARM || (isAmpliFARM && Number(boostedRewardAPY) > 0)
+        (isIFARM && Number(boostedRewardAPY) > 0) || (isAmpliFARM && Number(boostedRewardAPY) > 0)
           ? displayAPY(boostedRewardAPY)
           : displayAPY(farmAPY)
       }</b>: <b>${getRewardSymbol(token, isIFARM, vaultPool)}</b> rewards${
         isIFARM || isAmpliFARM ? `` : `<br/>`
       }${
-        isIFARM || (isAmpliFARM && Number(boostedRewardAPY) > 0)
+        (isIFARM && Number(boostedRewardAPY) > 0) || (isAmpliFARM && Number(boostedRewardAPY) > 0)
           ? ` (<b>${displayAPY(farmAPY)})</b>`
           : ''
       }`
