@@ -450,13 +450,13 @@ export const getRewardsText = (
 
     if (!token.hideFarmApy && Number(farmAPY) > 0) {
       let apyString = `<b>${
-        isIFARM || (isAmpliFARM && Number(boostedRewardAPY) > 0)
+        (isIFARM && Number(boostedRewardAPY) > 0) || (isAmpliFARM && Number(boostedRewardAPY) > 0)
           ? displayAPY(boostedRewardAPY)
           : displayAPY(farmAPY)
       }</b>: <b>${getRewardSymbol(token, isIFARM, vaultPool)}</b> rewards${
         isIFARM || isAmpliFARM ? `` : `<br/>`
       }${
-        isIFARM || (isAmpliFARM && Number(boostedRewardAPY) > 0)
+        (isIFARM && Number(boostedRewardAPY) > 0) || (isAmpliFARM && Number(boostedRewardAPY) > 0)
           ? ` (<b>${displayAPY(farmAPY)})</b>`
           : ''
       }`
