@@ -118,24 +118,13 @@ const VaultsProvider = _ref => {
           dataFetched = !apiFailed
         } else if (isIFARM) {
           totalSupply = await getTotalSupply(instance, web3Client)
-
-          // HOTFIX
-          try {
-            underlyingBalanceWithInvestment = await getUnderlyingBalanceWithInvestment(
-              instance,
-              web3Client,
-            )
-          } catch (e) {
-            underlyingBalanceWithInvestment = totalSupply
-          }
-          // HOTFIX
-          try {
-            pricePerFullShare = importedVaults[vaultSymbol].pricePerFullShareOverride
-              ? importedVaults[vaultSymbol].pricePerFullShareOverride
-              : await getPricePerFullShare(instance, web3Client)
-          } catch (e) {
-            pricePerFullShare = 1
-          }
+          underlyingBalanceWithInvestment = await getUnderlyingBalanceWithInvestment(
+            instance,
+            web3Client,
+          )
+          pricePerFullShare = importedVaults[vaultSymbol].pricePerFullShareOverride
+            ? importedVaults[vaultSymbol].pricePerFullShareOverride
+            : await getPricePerFullShare(instance, web3Client)
         }
 
         formattedVaults[vaultSymbol] = {
