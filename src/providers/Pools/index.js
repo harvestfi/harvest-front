@@ -206,7 +206,6 @@ const PoolsProvider = _ref => {
             if (
               pool.contractAddress !== '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e' &&
               pool.contractAddress !== '0x4F7c28cCb0F1Dbd1388209C67eEc234273C878Bd' &&
-              pool.contractAddress !== '0x15d3A64B2d5ab9E152F16593Cdebc4bB165B5B4A' &&
               pool.contractAddress !== '0x6ac4a7AB91E6fD098E13B7d347c6d4d1494994a2'
             ) {
               poolAddresses.push(pool.contractAddress)
@@ -247,6 +246,19 @@ const PoolsProvider = _ref => {
               totalStaked: balances[1][i],
             }
           })
+          // HOTFIX
+          stats.USDC = {
+            lpTokenBalance: '0',
+            totalStaked: '0',
+          }
+          stats.USDT = {
+            lpTokenBalance: '0',
+            totalStaked: '0',
+          }
+          stats.WETH = {
+            lpTokenBalance: '0',
+            totalStaked: '0',
+          }
           setUserStats(currStats => ({ ...currStats, ...stats }))
         }
 
