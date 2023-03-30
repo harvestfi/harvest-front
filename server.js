@@ -14,7 +14,7 @@ app.use(
     // contentSecurityPolicy: false,
     contentSecurityPolicy: {
       directives: {
-        frameAncestors: ['https://dapp-browser.apps.ledger.com/'],
+        frameAncestors: ['https://dapp-browser.apps.ledger.com/', 'http://localhost:3000'],
         scriptSrc: ["'self'", "'unsafe-inline'", 'https://static.cloudflareinsights.com'],
         connectSrc: ["'self'", '*'],
       },
