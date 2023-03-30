@@ -1,32 +1,34 @@
-import Web3 from 'web3'
-import { SafeAppWeb3Modal } from '@gnosis.pm/safe-apps-web3modal'
-import BigNumber from 'bignumber.js'
-import WalletConnectProvider from '@walletconnect/web3-provider'
 import { BscConnector } from '@binance-chain/bsc-connector'
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk'
+import { SafeAppWeb3Modal } from '@gnosis.pm/safe-apps-web3modal'
 import { loadConnectKit } from '@ledgerhq/connect-kit-loader'
+import { IFrameEthereumProvider } from '@ledgerhq/iframe-provider'
+import WalletConnectProvider from '@walletconnect/web3-provider'
+import BigNumber from 'bignumber.js'
+import { ethers } from 'ethers'
 import mobile from 'is-mobile'
 import { get } from 'lodash'
-import contracts from './contracts'
-import { formatNumber } from '../../utils'
+import Web3 from 'web3'
+import arbitrumLogo from '../../assets/images/logos/arbitrum.svg'
+import bscLogo from '../../assets/images/logos/bsc.png'
+import bswLogo from '../../assets/images/logos/bsw.png'
+import ethLogo from '../../assets/images/logos/eth.png'
+import maticLogo from '../../assets/images/logos/matic.svg'
 import {
+  ARBISCAN_URL,
+  ARBITRUM_URL,
   BSCSCAN_URL,
   BSC_URL,
   ETHERSCAN_URL,
   INFURA_URL,
-  POLL_BALANCES_INTERVAL_MS,
   isDebugMode,
-  MATIC_URL,
   MATICSCAN_URL,
-  ARBITRUM_URL,
-  ARBISCAN_URL,
+  MATIC_URL,
+  POLL_BALANCES_INTERVAL_MS,
 } from '../../constants'
-import ethLogo from '../../assets/images/logos/eth.png'
-import bscLogo from '../../assets/images/logos/bsc.png'
-import bswLogo from '../../assets/images/logos/bsw.png'
-import maticLogo from '../../assets/images/logos/matic.svg'
-import arbitrumLogo from '../../assets/images/logos/arbitrum.svg'
 import { CHAINS_ID } from '../../data/constants'
+import { formatNumber } from '../../utils'
+import contracts from './contracts'
 
 const providerOptions = {
   injected: {
@@ -124,6 +126,8 @@ export const infuraWeb3 = new Web3(INFURA_URL)
 export const bscWeb3 = new Web3(BSC_URL)
 export const maticWeb3 = new Web3(MATIC_URL)
 export const arbitrumWeb3 = new Web3(ARBITRUM_URL)
+export const ledgerProvider = new ethers.providers.Web3Provider(new IFrameEthereumProvider())
+export const ledgerWeb3 = new Web3(new IFrameEthereumProvider())
 
 export const connectWeb3 = async () => {
   const loadedAsSafeApp = await web3Modal.isSafeApp()
@@ -268,26 +272,6 @@ export const getChainName = chainId => {
   }
 }
 
-export const getWeb3 = (chainId, account) => {
-  if (account) {
-    return mainWeb3
-  }
-
-  if (chainId === CHAINS_ID.BSC_MAINNET) {
-    return bscWeb3
-  }
-
-  if (chainId === CHAINS_ID.MATIC_MAINNET) {
-    return maticWeb3
-  }
-
-  if (chainId === CHAINS_ID.ARBITRUM_ONE) {
-    return arbitrumWeb3
-  }
-
-  return infuraWeb3
-}
-
 export const getExplorerLink = chainId => {
   switch (chainId) {
     case CHAINS_ID.MATIC_MAINNET:
@@ -315,4 +299,52 @@ export const handleWeb3ReadMethod = (methodName, params, instance) => {
 
   const contractMethod = instance.methods[methodName]
   return contractMethod(...params).call()
+}
+
+export const isIframe = () => {
+  try {
+    return window.self !== window.top
+  } catch (err) {
+    return false
+  }
+}
+
+export const isLedgerDappBrowserProvider = () => {
+  let state
+  if (typeof window === 'undefined') state = false
+  /* eslint no-unsafe-finally: "error" */
+  try {
+    const params = new URLSearchParams(window.self.location.search)
+    const isEmbedded = !!params.get('utm_source')
+
+    state = isIframe() && isEmbedded
+  } catch (err) {
+    state = false
+  }
+  return state
+}
+
+export const isLedgerProvider = isLedgerDappBrowserProvider() || false
+
+export const getWeb3 = (chainId, account) => {
+  if (isLedgerProvider) {
+    return ledgerWeb3
+  }
+  if (account) {
+    return mainWeb3
+  }
+
+  if (chainId === CHAINS_ID.BSC_MAINNET) {
+    return bscWeb3
+  }
+
+  if (chainId === CHAINS_ID.MATIC_MAINNET) {
+    return maticWeb3
+  }
+
+  if (chainId === CHAINS_ID.ARBITRUM_ONE) {
+    return arbitrumWeb3
+  }
+
+  return infuraWeb3
 }
