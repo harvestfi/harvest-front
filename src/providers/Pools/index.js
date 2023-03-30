@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import useEffectWithPrevious from 'use-effect-with-previous'
 import { POLL_POOL_DATA_INTERVAL_MS, POOLS_API_ENDPOINT, SPECIAL_VAULTS } from '../../constants'
 import { CHAINS_ID } from '../../data/constants'
-import { getWeb3, newContractInstance } from '../../services/web3'
+import { getWeb3, isLedgerProvider, newContractInstance } from '../../services/web3'
 import poolContractData from '../../services/web3/contracts/pool/contract.json'
 import tokenContract from '../../services/web3/contracts/token/contract.json'
 import tokenMethods from '../../services/web3/contracts/token/methods'
@@ -173,13 +173,28 @@ const PoolsProvider = _ref => {
     _ref2 => {
       const [prevAccount] = _ref2
 
-      if (account !== prevAccount && account && !loadedUserPoolsWeb3Provider.current) {
+      if (
+        account !== prevAccount &&
+        account &&
+        !loadedUserPoolsWeb3Provider.current &&
+        !isLedgerProvider
+      ) {
         const setCurrentPoolsWithUserProvider = async () => {
           const poolsWithUpdatedProvider = await formatPoolsData(pools)
           setPools(poolsWithUpdatedProvider)
         }
 
         setCurrentPoolsWithUserProvider()
+      } else if (
+        account !== prevAccount &&
+        account &&
+        !loadedUserPoolsWeb3Provider.current &&
+        isLedgerProvider
+      ) {
+        const udpatePoolsData = async () => {
+          await getPoolsData()
+        }
+        udpatePoolsData()
       }
     },
     [account, pools],
@@ -206,6 +221,7 @@ const PoolsProvider = _ref => {
             if (
               pool.contractAddress !== '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e' &&
               pool.contractAddress !== '0x4F7c28cCb0F1Dbd1388209C67eEc234273C878Bd' &&
+              pool.contractAddress !== '0x15d3A64B2d5ab9E152F16593Cdebc4bB165B5B4A' &&
               pool.contractAddress !== '0x6ac4a7AB91E6fD098E13B7d347c6d4d1494994a2'
             ) {
               poolAddresses.push(pool.contractAddress)

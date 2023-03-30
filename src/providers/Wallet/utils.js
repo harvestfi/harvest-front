@@ -13,7 +13,7 @@ export const validateChain = async (
 
 export const validateAccount = (accounts, setAccount) => {
   if (accounts.length) {
-    setAccount(accounts[0])
+    setAccount(accounts[0].toLowerCase())
   } else {
     setAccount(null)
   }
