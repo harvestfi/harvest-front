@@ -99,7 +99,7 @@ const Work = () => {
         <WorkExplinatonHeader>Paid Contributor Jobs</WorkExplinatonHeader>
         <p align="left">
           <ul align="left">
-          <li>
+            <li>
               {' '}
               Development of new farming strategies in the new{' '}
               <a
@@ -119,7 +119,8 @@ const Work = () => {
                 rel="noopener noreferrer"
               >
                 front-end repository
-              </a>{' '}and the backend{' '}
+              </a>{' '}
+              and the backend{' '}
               <a
                 href="https://github.com/harvestfi/harvest-api"
                 target="_blank"
@@ -134,8 +135,9 @@ const Work = () => {
               ecosystem development, etc.
             </li>
           </ul>
-          The contributors are rewarded with <b>Harvest Action Points (AP)</b>. An Action Point represents 
-          a monetary value in stable coins. Payments are done monthly by the community ran multisig.
+          The contributors are rewarded with <b>Harvest Action Points (AP)</b>. An Action Point
+          represents a monetary value in stable coins. Payments are done monthly by the community
+          ran multisig.
         </p>
       </WorkExplinatonBox>
       <Divider height="25px" />
