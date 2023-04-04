@@ -99,32 +99,43 @@ const Work = () => {
         <WorkExplinatonHeader>Paid Contributor Jobs</WorkExplinatonHeader>
         <p align="left">
           <ul align="left">
-            <li>
-              Community-run front-end tools, such as the{' '}
-              <a href="https://farmdashboard.xyz/" target="_blank" rel="noopener noreferrer">
-                Stats Dashboard.
-              </a>{' '}
-            </li>
-            <li>
+          <li>
               {' '}
               Development of new farming strategies in the new{' '}
               <a
-                href="https://github.com/harvest-finance/harvest-strategy"
+                href="https://github.com/harvestfi/harvest-strategy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Harvest Strategy repository.
               </a>{' '}
             </li>
-            <li>Work on bots for Telegram and Discord.</li>
+            <li>
+              {' '}
+              Contributions to the{' '}
+              <a
+                href="https://github.com/harvestfi/harvest-front"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                front-end repository
+              </a>{' '}and the backend{' '}
+              <a
+                href="https://github.com/harvestfi/harvest-api"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                API repository
+              </a>{' '}
+            </li>
+            <li>Work on bots for Discord.</li>
             <li>
               Non-technical contributions, including Wiki write-ups, organizing the notion board,
               ecosystem development, etc.
             </li>
           </ul>
-          The contributors are rewarded with <b>Harvest Action Points (AP)</b>. The Harvest Actions
-          Point (AP) is an ERC-20 token that can be redeemed for <b>FARM</b> on this page. Payments
-          are done weekly by a community-builder-only multisig.
+          The contributors are rewarded with <b>Harvest Action Points (AP)</b>. An Action Point represents 
+          a monetary value in stable coins. Payments are done monthly by the community ran multisig.
         </p>
       </WorkExplinatonBox>
       <Divider height="25px" />
