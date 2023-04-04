@@ -36,29 +36,22 @@ const navLinks = [
     name: 'Farm',
   },
   {
-    path: ROUTES.STATS,
-    name: 'Stats',
-    newTab: true,
+    path: ROUTES.FAQ,
+    name: 'FAQ',
   },
   {
     path: ROUTES.WORK,
     name: 'Work',
   },
   {
-    path: ROUTES.VESTING,
-    name: 'Vesting',
+    path: ROUTES.WIKI,
+    name: 'Docs',
     newTab: true,
   },
   {
-    path: '#',
-    name: 'Help',
-    subItems: [
-      { path: ROUTES.AMPLIFARM, name: 'Booster' },
-      { path: ROUTES.FAQ, name: 'FAQ' },
-      { path: ROUTES.WIKI, newTab: true, name: 'Docs' },
-      { path: ROUTES.WIKI_ZH, newTab: true, name: '策略' },
-      { path: ROUTES.CLAIM_EXT, newTab: true, name: 'Grain' },
-    ],
+    path: ROUTES.WIKI_ZH,
+    name: '策略',
+    newTab: true,
   },
 ]
 
