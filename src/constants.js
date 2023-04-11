@@ -626,7 +626,6 @@ export const SPECIAL_VAULTS = {
   NEW_PROFIT_SHARING_POOL_ID: 'profit-sharing-farm',
   FARM_WETH_POOL_ID: 'farm-weth',
   FARM_GRAIN_POOL_ID: 'farm-grain',
-  FARM_USDC_POOL_ID: 'uni-farm-usdc',
   FARMSTEAD_USDC_POOL_ID: 'farmstead-usdc',
 }
 
