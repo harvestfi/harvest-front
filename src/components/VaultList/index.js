@@ -11,7 +11,6 @@ import {
   FARMSTEAD_USDC_TOKEN_SYMBOL,
   FARM_GRAIN_TOKEN_SYMBOL,
   FARM_TOKEN_SYMBOL,
-  FARM_USDC_TOKEN_SYMBOL,
   FARM_WETH_TOKEN_SYMBOL,
   IFARM_TOKEN_SYMBOL,
   SPECIAL_VAULTS,
@@ -308,13 +307,7 @@ const VaultList = ({ profitShareAPY }) => {
         category: VAULT_CATEGORIES_IDS.LIQUIDITY,
       },
     }),
-    [
-      farmGrainPool,
-      farmWethPool,
-      farmProfitSharingPool,
-      farmSteadUSDCPool,
-      profitShareAPY,
-    ],
+    [farmGrainPool, farmWethPool, farmProfitSharingPool, farmSteadUSDCPool, profitShareAPY],
   )
 
   const groupOfVaults = { ...vaultsData, ...poolVaults }
