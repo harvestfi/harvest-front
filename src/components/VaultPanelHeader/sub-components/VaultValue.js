@@ -23,7 +23,6 @@ const getVaultValue = token => {
     }
     case SPECIAL_VAULTS.FARM_GRAIN_POOL_ID:
     case SPECIAL_VAULTS.FARMSTEAD_USDC_POOL_ID:
-    case SPECIAL_VAULTS.FARM_USDC_POOL_ID:
       return get(token, 'data.totalValueLocked')
     default:
       return token.usdPrice
