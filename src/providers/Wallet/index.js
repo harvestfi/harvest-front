@@ -109,7 +109,7 @@ const WalletProvider = _ref => {
       }
     }
     fetchData()
-  }, [isLedgerProvider])
+  }, [])
 
   const onNetworkChange = useCallback(
     newChain => {
@@ -154,7 +154,7 @@ const WalletProvider = _ref => {
         )
       }
     },
-    [chain, isLedgerProvider],
+    [chain],
   )
   useEffect(() => {
     let accountEmitter, networkEmitter
@@ -187,7 +187,7 @@ const WalletProvider = _ref => {
         networkEmitter.removeListener('chainChanged', onNetworkChange)
       }
     }
-  }, [web3Plugin, chain, account, onNetworkChange, setChain, isLedgerProvider])
+  }, [web3Plugin, chain, account, onNetworkChange, setChain])
   const connect = useCallback(async () => {
     if (web3Plugin) {
       try {

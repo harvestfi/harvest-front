@@ -33,10 +33,10 @@ export const calculateFarmingBalance = async (pools, userStats, vaultSymbol, vau
   const vaultPool = find(pools, pool => pool.collateralAddress === vaultAddress)
 
   try {
-    const userBalanceInVault = new BigNumber(userStats[vaultPool.id].lpTokenBalance)
+    const userBalanceInVault = new BigNumber(userStats[vaultPool.id]?.lpTokenBalance)
 
     if (vaultPool && vaultPool.contractInstance) {
-      const userBalanceInPool = new BigNumber(userStats[vaultPool.id].totalStaked)
+      const userBalanceInPool = new BigNumber(userStats[vaultPool.id]?.totalStaked)
 
       const underlyingPoolBalanceForHolder = new BigNumber(totalSupply).isGreaterThan(0)
         ? new BigNumber(underlyingBalanceWithInvestment)
