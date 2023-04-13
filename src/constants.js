@@ -607,6 +607,7 @@ export const POOLS_API_ENDPOINT = `${HARVEST_API_URL}/pools?key=${process.env.RE
 export const VAULTS_API_ENDPOINT = `${HARVEST_API_URL}/vaults?key=${process.env.REACT_APP_API_KEY}`
 export const REVENUE_MONTHLY_API_ENDPOINT = `${HARVEST_EXTERNAL_API_URL}/revenue/monthly?key=${process.env.REACT_APP_EXTERNAL_API_KEY}`
 export const CMC_API_ENDPOINT = `${HARVEST_EXTERNAL_API_URL}/cmc?key=${process.env.REACT_APP_EXTERNAL_API_KEY}`
+export const TVL_API_ENDPOINT = `${HARVEST_EXTERNAL_API_URL}/gmv/total?key=${process.env.REACT_APP_EXTERNAL_API_KEY}`
 
 export const POOL_BALANCES_DECIMALS = 9
 
