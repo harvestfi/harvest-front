@@ -862,8 +862,6 @@ export const ZAPPER_FI_ZAP_IN_ENDPOINT = 'https://api.zapper.fi/v1/zap-in/harves
 
 export const UNIV3_POOL_ID_REGEX = '[uU]ni[vV]3'
 
-export const RESTRICTED_COUNTRIES = ['US', 'Not found']
-
 export const MIGRATION_STEPS = {
   UNSTAKE: 0,
   APPROVE: 1,

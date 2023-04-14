@@ -1,57 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import axios from 'axios'
-import { get } from 'lodash'
 import Navbar from './components/Navbar/index'
 import Farm from './pages/Farm'
 import Work from './pages/Work'
 import FAQ from './pages/FAQ'
-import { RESTRICTED_COUNTRIES, ROUTES } from './constants'
+import { ROUTES } from './constants'
 import { Body, GlobalStyle, WorkPageLink } from './components/GlobalStyle'
 import Boost from './pages/Boost'
 import Modal from './components/Modal'
 import Providers from './providers'
-
-const RestrictCountries = () => {
-  const [open, setOpen] = useState(false)
-  const RCountriesAcknowledgedField = localStorage.getItem('RCountriesAcknowledged')
-
-  useEffect(() => {
-    const checkIPLocation = async () => {
-      const geoResponse = await axios.get('https://geolocation-db.com/json/')
-      const countryCode = get(geoResponse, 'data.country_code')
-
-      if (RESTRICTED_COUNTRIES.includes(countryCode)) {
-        setOpen(true)
-      }
-    }
-
-    if (!RCountriesAcknowledgedField) {
-      checkIPLocation()
-    }
-  }, [RCountriesAcknowledgedField])
-
-  return (
-    <>
-      {!RCountriesAcknowledgedField ? (
-        <Modal
-          title="Warning"
-          confirmationLabel="I confirm I am not subject to these restrictions"
-          open={open}
-          onClose={() => {
-            localStorage.setItem('RCountriesAcknowledged', true)
-            setOpen(false)
-          }}
-        >
-          Due to regulatory uncertainty, <b>Harvest</b> is not available to people or companies who
-          are residents in the <b>United States</b> or a restricted territory, or are subject to
-          other restrictions.
-        </Modal>
-      ) : null}
-    </>
-  )
-}
 
 const ExperimentalSoftware = () => {
   const [open, setOpen] = useState(false)
@@ -77,11 +35,19 @@ const ExperimentalSoftware = () => {
             setOpen(false)
           }}
         >
-          By interacting with the Harvest Finance website and/or smart contracts, the user
-          acknowledges the experimental nature of yield farming with Harvest Finance, its dependency
-          on 3rd party protocols, and <b>the potential for total loss of funds deposited.</b>
-          The user accepts full liability for their usage of Harvest Finance, and no financial
-          responsibility is placed on the protocol developers and contributors.
+          <p>
+            Due to regulatory uncertainty, <b>Harvest Finance</b> is not available to people or
+            companies, who are residents in the <b>United States</b> or other restricted territory,
+            or who are subject to other restrictions.
+          </p>
+          <p>
+            By interacting with the Harvest Finance website and/or smart contracts, the user
+            acknowledges the experimental nature of yield farming with Harvest Finance, its
+            dependency on 3rd party protocols, and{' '}
+            <b>the potential for total loss of funds deposited.</b> The user accepts full liability
+            for their usage of Harvest Finance, and no financial responsibility is placed on the
+            protocol developers and contributors.
+          </p>
         </Modal>
       ) : null}
     </>
@@ -94,7 +60,6 @@ const App = () => (
     <ToastContainer />
     <Providers>
       <ExperimentalSoftware />
-      <RestrictCountries />
       <Navbar />
       <Body id="page-content">
         <Switch>
