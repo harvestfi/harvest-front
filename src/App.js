@@ -9,11 +9,8 @@ import Work from './pages/Work'
 import FAQ from './pages/FAQ'
 import { RESTRICTED_COUNTRIES, ROUTES } from './constants'
 import { Body, GlobalStyle, WorkPageLink } from './components/GlobalStyle'
-import Earn from './pages/Earn'
 import Boost from './pages/Boost'
-import Zapper from './pages/Zapper'
 import Modal from './components/Modal'
-import HeaderBanner from './components/HeaderBanner'
 import Providers from './providers'
 
 const RestrictCountries = () => {
@@ -37,23 +34,6 @@ const RestrictCountries = () => {
 
   return (
     <>
-      {RCountriesAcknowledgedField ? (
-        <HeaderBanner>
-          You indicated that you are not from a restricted country.{' '}
-          <span
-            role="tab"
-            tabIndex={0}
-            aria-hidden="true"
-            style={{ textDecoration: 'underline', cursor: 'pointer' }}
-            onClick={() => {
-              localStorage.removeItem('RCountriesAcknowledged')
-              setOpen(true)
-            }}
-          >
-            Click here for details
-          </span>
-        </HeaderBanner>
-      ) : null}
       {!RCountriesAcknowledgedField ? (
         <Modal
           title="Warning"
@@ -73,21 +53,55 @@ const RestrictCountries = () => {
   )
 }
 
+const ExperimentalSoftware = () => {
+  const [open, setOpen] = useState(false)
+  const ExperimentalSoftwareAcknowledgedField = localStorage.getItem(
+    'ExperimentalSoftwareAcknowledged',
+  )
+
+  useEffect(() => {
+    if (!ExperimentalSoftwareAcknowledgedField) {
+      setOpen(true)
+    }
+  }, [ExperimentalSoftwareAcknowledgedField])
+
+  return (
+    <>
+      {!ExperimentalSoftwareAcknowledgedField ? (
+        <Modal
+          title="Warning"
+          confirmationLabel="I have read and acknowledge this message"
+          open={open}
+          onClose={() => {
+            localStorage.setItem('ExperimentalSoftwareAcknowledgedField', true)
+            setOpen(false)
+          }}
+        >
+          By interacting with the Harvest Finance website and/or smart contracts, the user
+          acknowledges the experimental nature of yield farming with Harvest Finance, its dependency
+          on 3rd party protocols, and <b>the potential for total loss of funds deposited.</b>
+          The user accepts full liability for their usage of Harvest Finance, and no financial
+          responsibility is placed on the protocol developers and contributors.
+        </Modal>
+      ) : null}
+    </>
+  )
+}
+
 const App = () => (
   <Router>
     <GlobalStyle />
     <ToastContainer />
     <Providers>
+      <ExperimentalSoftware />
       <RestrictCountries />
       <Navbar />
       <Body id="page-content">
         <Switch>
           <Route exact path={ROUTES.FARM} component={Farm} />
-          <Route exact path={ROUTES.EARN} component={Earn} />
           <Route path={ROUTES.FAQ} component={FAQ} />
           <Route path={ROUTES.WORK} component={Work} />
           <Route path={ROUTES.AMPLIFARM} component={Boost} />
-          <Route path={ROUTES.ZAPPER} component={Zapper} />
         </Switch>
       </Body>
     </Providers>

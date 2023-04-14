@@ -37,11 +37,9 @@ export const SOCIAL_LINKS = {
 export const ROUTES = {
   FARM: '/',
   AMPLIFARM: '/amplifarm',
-  EARN: '/earn',
   WORK: '/work',
   POOL: '/pool',
   FAQ: '/faq',
-  ZAPPER: '/zapper',
   ARBITRUM: 'https://harvest.dolomite.io/',
   VESTING: 'https://vest.harvest.finance/',
   WIKI: 'https://harvest-finance.gitbook.io/harvest-finance/',
@@ -864,7 +862,7 @@ export const ZAPPER_FI_ZAP_IN_ENDPOINT = 'https://api.zapper.fi/v1/zap-in/harves
 
 export const UNIV3_POOL_ID_REGEX = '[uU]ni[vV]3'
 
-export const RESTRICTED_COUNTRIES = ['US']
+export const RESTRICTED_COUNTRIES = ['US', 'Not found']
 
 export const MIGRATION_STEPS = {
   UNSTAKE: 0,
