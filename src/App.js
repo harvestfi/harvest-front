@@ -73,7 +73,7 @@ const ExperimentalSoftware = () => {
           confirmationLabel="I have read and acknowledge this message"
           open={open}
           onClose={() => {
-            localStorage.setItem('ExperimentalSoftwareAcknowledgedField', true)
+            localStorage.setItem('ExperimentalSoftwareAcknowledged', true)
             setOpen(false)
           }}
         >
