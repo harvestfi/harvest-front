@@ -44,6 +44,10 @@ const navLinks = [
     name: 'Work',
   },
   {
+    path: ROUTES.VESTING,
+    name: 'Vesting',
+  },
+  {
     path: ROUTES.WIKI,
     name: 'Docs',
     newTab: true,
