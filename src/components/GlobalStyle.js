@@ -419,19 +419,6 @@ const NewBadgeRibbon = styled.img`
   width: 34px;
 `
 
-const WorkPageLink = styled.a`
-  position: absolute;
-  left: 6%;
-  bottom: 1%;
-  width: 30%;
-  height: 18vw;
-  z-index: 1;
-
-  @media screen and (max-width: 1200px) {
-    display: none;
-  }
-`
-
 export {
   Divider,
   ClickGate,
@@ -449,5 +436,4 @@ export {
   ScrollArrow,
   NewBadgeLabel,
   NewBadgeRibbon,
-  WorkPageLink,
 }

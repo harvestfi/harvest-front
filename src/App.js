@@ -6,7 +6,7 @@ import Farm from './pages/Farm'
 import Work from './pages/Work'
 import FAQ from './pages/FAQ'
 import { ROUTES } from './constants'
-import { Body, GlobalStyle, WorkPageLink } from './components/GlobalStyle'
+import { Body, GlobalStyle } from './components/GlobalStyle'
 import Boost from './pages/Boost'
 import Modal from './components/Modal'
 import Providers from './providers'
@@ -70,7 +70,6 @@ const App = () => (
         </Switch>
       </Body>
     </Providers>
-    <WorkPageLink href="/work" />
   </Router>
 )
 
