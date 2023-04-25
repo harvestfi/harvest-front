@@ -38,14 +38,10 @@ export const ROUTES = {
   FARM: '/',
   AMPLIFARM: '/amplifarm',
   WORK: '/work',
-  POOL: '/pool',
   FAQ: '/faq',
-  ARBITRUM: 'https://harvest.dolomite.io/',
   VESTING: 'https://vest.harvest.finance/',
-  WIKI: 'https://harvest-finance.gitbook.io/harvest-finance/',
+  WIKI: 'https://docs.harvvest.finance/',
   WIKI_ZH: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
-  CLAIM_EXT: 'https://claim.harvest.finance',
-  STATS: 'https://farmdashboard.xyz',
 }
 
 export const KEY_CODES = {
