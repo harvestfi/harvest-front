@@ -53,11 +53,6 @@ const navLinks = [
     name: 'Docs',
     newTab: true,
   },
-  {
-    path: ROUTES.WIKI_ZH,
-    name: '策略',
-    newTab: true,
-  },
 ]
 
 const NavLink = ({ item, subItem, openHambuger, isDropdownLink }) => {
