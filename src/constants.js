@@ -40,7 +40,7 @@ export const ROUTES = {
   WORK: '/work',
   FAQ: '/faq',
   VESTING: 'https://vest.harvest.finance/',
-  WIKI: 'https://docs.harvvest.finance/',
+  WIKI: 'https://docs.harvest.finance/',
   WIKI_ZH: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
 }
 
