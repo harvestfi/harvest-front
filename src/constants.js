@@ -22,14 +22,12 @@ import { addresses } from './data'
 export const HARVEST_LAUNCH_DATE = new Date(1598986800000)
 
 export const SOCIAL_LINKS = {
-  TELEGRAM: 'https://t.me/Breadforthepeople',
   TWITTER: 'https://twitter.com/harvest_finance',
   MEDIUM: 'https://medium.com/harvest-finance',
   DISCORD: 'https://discord.gg/gzWAG3Wx7Y',
-  REDDIT: 'https://www.reddit.com/r/HarvestFinance/',
-  GITHUB: 'https://github.com/harvest-finance',
-  WIKI: 'https://harvest-finance.gitbook.io/harvest-finance',
-  WIKI_CHINEESE: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
+  GITHUB: 'https://github.com/harvestfi',
+  WIKI: 'https://docs.harvest.finance',
+  WIKI_CHINESE: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
   AUDITS: 'https://github.com/harvest-finance/harvest/tree/master/audits',
   BUG_BOUNTY: 'https://immunefi.com/bounty/harvest/',
 }
@@ -41,7 +39,7 @@ export const ROUTES = {
   FAQ: '/faq',
   VESTING: 'https://vest.harvest.finance/',
   WIKI: 'https://docs.harvest.finance/',
-  WIKI_ZH: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
+  WIKI_CHINESE: 'https://farm.chainwiki.dev/zh/%E7%AD%96%E7%95%A5',
 }
 
 export const KEY_CODES = {
@@ -771,10 +769,10 @@ export const DEFAULT_CLAIM_HELP_MESSAGES = {
       <b>Claim rewards:</b>
       <ol className="numeric-list">
         <li>
-          Hit &quot;Claim rewards&quot; to claim your <b>miFARM</b>
+          Hit &quot;Claim rewards&quot; to claim your <b>iFARM</b>
         </li>
         <li>
-          Your <b>miFARM</b> earns interest automatically, you do not need to stake it
+          Your <b>iFARM</b> earns interest automatically, you do not need to stake it
         </li>
       </ol>
     </div>
