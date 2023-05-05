@@ -28,7 +28,7 @@ const ExperimentalSoftware = () => {
       {!ExperimentalSoftwareAcknowledgedField ? (
         <Modal
           title="Warning"
-          confirmationLabel="I have read and acknowledge this message"
+          confirmationLabel="I certify that I read and agree with this warning"
           open={open}
           onClose={() => {
             localStorage.setItem('ExperimentalSoftwareAcknowledged', true)
