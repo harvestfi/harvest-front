@@ -1,7 +1,6 @@
 import { BscConnector } from '@binance-chain/bsc-connector'
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk'
 import { SafeAppWeb3Modal } from '@gnosis.pm/safe-apps-web3modal'
-import { loadConnectKit } from '@ledgerhq/connect-kit-loader'
 import { IFrameEthereumProvider } from '@ledgerhq/iframe-provider'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import BigNumber from 'bignumber.js'
@@ -77,17 +76,6 @@ const providerOptions = {
       const provider = new ProviderPackage(options)
       await provider.activate()
       return window.BinanceChain
-    },
-  },
-  ledger: {
-    package: loadConnectKit,
-    options: {
-      rpc: {
-        [CHAINS_ID.ETH_MAINNET]: INFURA_URL,
-        [CHAINS_ID.BSC_MAINNET]: BSC_URL,
-        [CHAINS_ID.MATIC_MAINNET]: MATIC_URL,
-        [CHAINS_ID.ARBITRUM_ONE]: ARBITRUM_URL,
-      },
     },
   },
 }
